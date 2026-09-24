@@ -131,12 +131,18 @@
       <div class="flex items-center justify-between h-20">
         
         <!-- Brand Logo / Emblem -->
-        <a href="#" class="flex items-center gap-3 group shrink-0 py-1" aria-label="AM Soul Mate Home">
-          <img src="logo.png" alt="AM Soul Mate - Partner of Healthy Life" class="h-14 w-auto object-contain rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+        <a href="#" class="flex items-center gap-3.5 group shrink-0 py-1" aria-label="AM Soul Mate Home">
+          <div class="h-14 w-14 rounded-xl bg-[#081710] border border-brand-gold/40 p-1 flex items-center justify-center shadow-lg group-hover:border-brand-gold transition duration-300 overflow-hidden">
+            <img src="logo.png" alt="AM Soul Mate - Partner of Healthy Life" class="h-full w-full object-contain">
+          </div>
+          <div class="flex flex-col justify-center">
+            <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider leading-none text-white group-hover:text-brand-goldLight transition">SOUL MATE</span>
+            <span class="font-cinzel text-[9px] tracking-[0.25em] text-brand-gold uppercase font-semibold mt-1">Partner of Healthy Life</span>
+          </div>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium tracking-wide whitespace-nowrap ml-8 xl:ml-12">
+        <nav class="hidden lg:flex items-center space-x-5 xl:space-x-7 text-xs xl:text-sm font-medium tracking-wide whitespace-nowrap ml-6 xl:ml-8">
           <a href="#catalog" class="text-white/90 hover:text-brand-gold transition py-1 border-b-2 border-transparent hover:border-brand-gold">All Products</a>
           <a href="#catalog" onclick="filterCategory('skincare')" class="text-white/90 hover:text-brand-gold transition py-1">Skincare</a>
           <a href="#catalog" onclick="filterCategory('haircare')" class="text-white/90 hover:text-brand-gold transition py-1">Hair Growth</a>
@@ -875,11 +881,11 @@
           <div class="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
             
             <!-- Image & Badges -->
-            <div class="relative aspect-square overflow-hidden bg-brand-pearl cursor-pointer" onclick="openQuickView('${p.id}')">
+            <div class="relative aspect-square overflow-hidden bg-[#fbf9f5] p-2 flex items-center justify-center cursor-pointer" onclick="openQuickView('${p.id}')">
               <img 
                 src="${p.image}" 
                 alt="${p.name}" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" 
                 loading="lazy"
               >
               
