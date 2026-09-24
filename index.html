@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AM Soul Mate | Luxury Herbal & Ayurvedic Beauty Care</title>
+  <meta name="description" content="Discover pure herbal luxury with AM Soul Mate. Ayurvedic Kumkumadi face serums, Korean glass skin rice water, hair growth oils, and artisanal soaps handcrafted in Sri Lanka. Instant WhatsApp ordering.">
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Google Fonts: Cormorant Garamond, Playfair Display, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              emerald: '#0c2419',
+              dark: '#081710',
+              forest: '#143d2b',
+              sage: '#345e49',
+              gold: '#c5a059',
+              goldLight: '#eed58e',
+              goldDark: '#9c7732',
+              cream: '#fdfbf7',
+              pearl: '#f8f5ee',
+              blush: '#f9eee9',
+              charcoal: '#1a1d1b'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            editorial: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Luxury Styling */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #eed58e 0%, #c5a059 40%, #fdf5d6 70%, #a27a32 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-gradient {
+      border-image: linear-gradient(to right, #eed58e, #c5a059, #9c7732) 1;
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #c5a059 0%, #dfc176 50%, #9c7732 100%);
+    }
+    .gold-gradient-btn {
+      background: linear-gradient(135deg, #c5a059 0%, #e2c67b 50%, #b28a38 100%);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gold-gradient-btn:hover {
+      background: linear-gradient(135deg, #d4af37 0%, #fae69e 50%, #c5a059 100%);
+      box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.4);
+      transform: translateY(-2px);
+    }
+    .glass-card {
+      background: rgba(253, 251, 247, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .glass-dark {
+      background: rgba(12, 36, 25, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    /* Hide scrollbar for category tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Subtle pulse animation for WhatsApp */
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+      50% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+    }
+    .wa-pulse {
+      animation: pulseGlow 2.5s infinite;
+    }
+
+    /* Header navigation alignment */
+    header .flex.items-center.justify-between {
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-cream text-brand-charcoal font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+  <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+  <div class="bg-brand-dark text-brand-goldLight text-xs py-2 px-4 border-b border-brand-forest/40">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-2 overflow-hidden whitespace-nowrap">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="font-medium tracking-wide">🌿 100% Pure Herbal &amp; Ayurvedic Formulas • Handcrafted in Sri Lanka • Islandwide Delivery</span>
+      </div>
+      <div class="hidden md:flex items-center space-x-6 text-brand-pearl/90">
+        <a href="https://wa.me/94756771358?text=Hello%20AM%20Soul%20Mate,%20I%20would%20like%20to%20inquire%20about%20your%20herbal%20products." target="_blank" class="hover:text-brand-gold transition flex items-center gap-1.5 font-medium">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-[#25D366] fill-[#25D366]"></i>
+          <span class="text-white font-semibold">+94 75 677 1358</span>
+          <span class="text-brand-goldLight text-[11px]">(WhatsApp Orders)</span>
+        </a>
+        <span class="text-brand-forest">|</span>
+        <span class="text-brand-goldLight font-medium">LKR (Sri Lankan Rupees)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN HEADER / NAVIGATION ==================== -->
+  <header class="sticky top-0 z-40 bg-brand-emerald text-white border-b border-brand-forest shadow-lg transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo / Emblem -->
+        <a href="#" class="flex items-center gap-3 group shrink-0 py-1" aria-label="AM Soul Mate Home">
+          <img src="logo.png" alt="AM Soul Mate - Partner of Healthy Life" class="h-14 w-auto object-contain rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+          <a href="#catalog" class="text-white/90 hover:text-brand-gold transition py-1 border-b-2 border-transparent hover:border-brand-gold">All Products</a>
+          <a href="#catalog" onclick="filterCategory('skincare')" class="text-white/90 hover:text-brand-gold transition py-1">Skincare</a>
+          <a href="#catalog" onclick="filterCategory('haircare')" class="text-white/90 hover:text-brand-gold transition py-1">Hair Growth</a>
+          <a href="#catalog" onclick="filterCategory('cleansers')" class="text-white/90 hover:text-brand-gold transition py-1">Artisan Soaps</a>
+          <a href="#catalog" onclick="filterCategory('combos')" class="text-white/90 hover:text-brand-gold transition py-1">Glow Combos</a>
+          <a href="#about" class="text-white/90 hover:text-brand-gold transition py-1">Our Story</a>
+        </nav>
+
+        <!-- Right Side: Search, WhatsApp Chat, Cart Trigger -->
+        <div class="flex items-center space-x-3 sm:space-x-5">
+          <!-- Search Bar (Desktop) -->
+          <div class="relative hidden sm:block w-48 md:w-64">
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Search serum, hair oil..." 
+              class="w-full bg-brand-dark/70 text-white placeholder-emerald-300/50 text-xs rounded-full pl-9 pr-4 py-2 border border-brand-forest focus:outline-none focus:border-brand-gold transition"
+              oninput="handleSearch(this.value)"
+            >
+            <i data-lucide="search" class="w-4 h-4 text-brand-gold absolute left-3 top-2.5"></i>
+          </div>
+
+          <!-- Direct WhatsApp Button -->
+          <a 
+            href="https://wa.me/94756771358?text=Hi%20AM%20Soul%20Mate!%20I%20would%20like%20to%20place%20an%20order." 
+            target="_blank" 
+            class="hidden sm:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold px-3.5 py-2 rounded-full transition shadow-md hover:shadow-lg"
+          >
+            <i data-lucide="message-circle" class="w-4 h-4 fill-white text-white"></i>
+            <span>WhatsApp</span>
+          </a>
+
+          <!-- Cart Drawer Button -->
+          <button 
+            onclick="openCartDrawer()" 
+            class="relative flex items-center gap-2 bg-brand-dark hover:bg-brand-forest/60 text-brand-goldLight border border-brand-gold/40 px-3.5 py-2 rounded-full transition group"
+            aria-label="Open Shopping Cart"
+          >
+            <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-gold group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-semibold hidden md:inline">Cart</span>
+            <span id="cartBadgeCount" class="w-5 h-5 rounded-full bg-brand-gold text-brand-dark text-xs font-bold flex items-center justify-center">0</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative bg-brand-dark text-white overflow-hidden border-b border-brand-forest/60">
+    <!-- Subtle background gradient glow -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.18),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(20,61,43,0.4),transparent_50%)]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-forest/60 border border-brand-gold/40 text-brand-gold text-xs font-semibold tracking-widest uppercase">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-goldLight"></i>
+            Sri Lanka's Handcrafted Herbal Alchemy
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
+            Radiance Reborn Through <br class="hidden sm:inline">
+            <span class="gold-gradient-text italic font-editorial">Pure Nature's Touch.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-emerald-100/80 font-light max-w-2xl leading-relaxed mx-auto lg:mx-0">
+            Immerse yourself in authentic Ayurvedic beauty. Formulated with Kashmiri saffron, fresh botanical extracts, and time-honored remedies for translucent glass skin and revitalized hair.
+          </p>
+
+          <!-- Key Trust Badges -->
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-brand-pearl/90">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              </div>
+              <span>100% Herbal &amp; Pure</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              </div>
+              <span>Cruelty Free</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              </div>
+              <span>Islandwide Delivery</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#catalog" class="w-full sm:w-auto gold-gradient-btn text-brand-dark font-bold text-sm px-8 py-3.5 rounded-full shadow-lg text-center flex items-center justify-center gap-2">
+              <span>Explore Collection</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+
+            <a href="https://wa.me/94756771358?text=Hi%20AM%20Soul%20Mate!%20I%20would%20like%20a%20free%20skin%20consultation." target="_blank" class="w-full sm:w-auto bg-brand-forest hover:bg-brand-sage text-white font-semibold text-sm px-6 py-3.5 rounded-full border border-brand-gold/30 transition text-center flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4 text-[#25D366]"></i>
+              <span>Free WhatsApp Skin Consult</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Visual Feature Showcase -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md">
+            
+            <!-- Glow background ring -->
+            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-brand-gold/30 to-emerald-500/20 blur-2xl opacity-70"></div>
+
+            <!-- Spotlight Card -->
+            <div class="relative rounded-3xl overflow-hidden bg-brand-emerald/90 border border-brand-gold/40 shadow-2xl p-6 space-y-4">
+              <div class="relative rounded-2xl overflow-hidden aspect-square group">
+                <img 
+                  id="heroSpotlightImage"
+                  src="images/kumkumadi_serum.jpg" 
+                  alt="Pure Kumkumadi Face Serum"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                >
+                <div class="absolute top-3 left-3 bg-brand-dark/80 backdrop-blur-md text-brand-gold text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full border border-brand-gold/40">
+                  Featured Bestseller
+                </div>
+                <div class="absolute bottom-3 right-3 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-brand-gold/30">
+                  LKR 1,500 <span class="line-through text-white/50 text-[10px] ml-1">1,800</span>
+                </div>
+              </div>
+
+              <!-- Mini Carousel Indicators -->
+              <div class="flex items-center justify-between pt-2">
+                <div>
+                  <h3 id="heroSpotlightTitle" class="font-serif font-bold text-lg text-white">Pure Kumkumadi Face Serum</h3>
+                  <p id="heroSpotlightTag" class="text-xs text-brand-goldLight">Saffron &amp; 28 Ayurvedic Botanicals</p>
+                </div>
+                <button 
+                  onclick="openQuickView('kumkumadi-serum')" 
+                  class="text-xs font-bold bg-brand-gold hover:bg-brand-goldLight text-brand-dark px-3.5 py-2 rounded-full transition"
+                >
+                  Quick View
+                </button>
+              </div>
+
+              <!-- Thumbnails switcher -->
+              <div class="grid grid-cols-4 gap-2 pt-2 border-t border-brand-forest/60">
+                <button onclick="switchHeroFeature('kumkumadi-serum', 'images/kumkumadi_serum.jpg', 'Pure Kumkumadi Face Serum', 'Saffron & 28 Ayurvedic Botanicals')" class="rounded-lg overflow-hidden border-2 border-brand-gold hover:opacity-100 transition aspect-square">
+                  <img src="images/kumkumadi_serum.jpg" class="w-full h-full object-cover" alt="Kumkumadi">
+                </button>
+                <button onclick="switchHeroFeature('rice-water-toner', 'images/rice_water_toner.jpg', 'Korean Glass Skin Rice Water', 'Fermented Rice & Botanical Glow')" class="rounded-lg overflow-hidden border border-brand-forest hover:border-brand-gold hover:opacity-100 transition aspect-square">
+                  <img src="images/rice_water_toner.jpg" class="w-full h-full object-cover" alt="Rice Water">
+                </button>
+                <button onclick="switchHeroFeature('hair-care-combo', 'images/hair_care_combo.jpg', 'Super Growth Hair Oil & Shampoo', 'Root-to-Tip Herbal Growth Duo')" class="rounded-lg overflow-hidden border border-brand-forest hover:border-brand-gold hover:opacity-100 transition aspect-square">
+                  <img src="images/hair_care_combo.jpg" class="w-full h-full object-cover" alt="Hair Combo">
+                </button>
+                <button onclick="switchHeroFeature('papaya-glow-soap', 'images/papaya_glow_soap.jpg', 'Papaya & Saffron Glow Soap', 'Natural Enzyme Skin Radiance')" class="rounded-lg overflow-hidden border border-brand-forest hover:border-brand-gold hover:opacity-100 transition aspect-square">
+                  <img src="images/papaya_glow_soap.jpg" class="w-full h-full object-cover" alt="Papaya Soap">
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HIGHLIGHT VALUE PROPOSITIONS ==================== -->
+  <section class="bg-brand-pearl py-8 border-b border-brand-gold/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        
+        <div class="flex flex-col items-center p-3">
+          <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
+            <i data-lucide="leaf" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-serif font-bold text-brand-dark text-sm sm:text-base">100% Herbal &amp; Pure</h4>
+          <p class="text-xs text-gray-600 mt-0.5">Free from parabens &amp; harsh chemicals</p>
+        </div>
+
+        <div class="flex flex-col items-center p-3">
+          <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
+            <i data-lucide="truck" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-serif font-bold text-brand-dark text-sm sm:text-base">Islandwide Delivery</h4>
+          <p class="text-xs text-gray-600 mt-0.5">Prompt courier service across Sri Lanka</p>
+        </div>
+
+        <div class="flex flex-col items-center p-3">
+          <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
+            <i data-lucide="message-circle" class="w-6 h-6 text-[#25D366]"></i>
+          </div>
+          <h4 class="font-serif font-bold text-brand-dark text-sm sm:text-base">1-Click WhatsApp Order</h4>
+          <p class="text-xs text-gray-600 mt-0.5">Instant checkout without tedious logins</p>
+        </div>
+
+        <div class="flex flex-col items-center p-3">
+          <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-serif font-bold text-brand-dark text-sm sm:text-base">Glass Skin Guaranteed</h4>
+          <p class="text-xs text-gray-600 mt-0.5">Loved by 10,000+ satisfied clients</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN PRODUCT CATALOG SECTION ==================== -->
+  <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-24">
+    
+    <!-- Section Heading -->
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <p class="font-cinzel text-xs tracking-[0.25em] text-brand-goldDark font-bold uppercase">The Natural Collection</p>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mt-1">Handcrafted Ayurvedic Elixirs</h2>
+      <div class="w-16 h-0.5 bg-brand-gold mx-auto my-3"></div>
+      <p class="text-sm text-gray-600">Select any product to view full herbal details or order directly on WhatsApp with cash on delivery / bank transfer.</p>
+    </div>
+
+    <!-- Category Tabs Filter -->
+    <div class="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 pb-4 mb-8">
+      <button 
+        onclick="filterCategory('all')" 
+        id="cat-all" 
+        class="category-btn active px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-brand-emerald text-white shadow-md border border-brand-emerald"
+      >
+        All Products (22)
+      </button>
+
+      <button 
+        onclick="filterCategory('skincare')" 
+        id="cat-skincare" 
+        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
+      >
+        ✨ Skincare &amp; Serums
+      </button>
+
+      <button 
+        onclick="filterCategory('haircare')" 
+        id="cat-haircare" 
+        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
+      >
+        🌿 Hair Growth
+      </button>
+
+      <button 
+        onclick="filterCategory('cleansers')" 
+        id="cat-cleansers" 
+        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
+      >
+        🧼 Luxury Soaps
+      </button>
+
+      <button 
+        onclick="filterCategory('bodycare')" 
+        id="cat-bodycare" 
+        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
+      >
+        🌸 Body &amp; Spa
+      </button>
+
+      <button 
+        onclick="filterCategory('combos')" 
+        id="cat-combos" 
+        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
+      >
+        🎁 Glow Combos &amp; Kits
+      </button>
+    </div>
+
+    <!-- Active Filter Status & Sorting Toolbar -->
+    <div class="flex flex-col sm:flex-row items-center justify-between pb-6 border-b border-gray-200 mb-8 gap-4">
+      <div class="text-xs text-gray-500 font-medium">
+        Showing <span id="productCount" class="font-bold text-brand-dark">22</span> handcrafted herbal items
+      </div>
+
+      <div class="flex items-center gap-3">
+        <label for="sortSelect" class="text-xs text-gray-500 font-medium">Sort by:</label>
+        <select 
+          id="sortSelect" 
+          onchange="handleSort(this.value)" 
+          class="bg-white border border-gray-300 text-brand-dark text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-brand-gold"
+        >
+          <option value="featured">Featured / Bestsellers</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Highest Rated</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Product Grid Container -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+      <!-- Injected via JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- ==================== ABOUT / STORY SECTION ==================== -->
+  <section id="about" class="bg-brand-emerald text-white py-16 lg:py-24 border-t border-brand-forest relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <div class="flex items-center gap-3">
+            <img src="logo.png" alt="AM Soul Mate Emblem" class="h-12 w-auto object-contain rounded-lg shadow-sm border border-brand-gold/30">
+            <div>
+              <p class="font-cinzel text-xs tracking-[0.25em] text-brand-gold font-bold uppercase">The AM Soul Mate Philosophy</p>
+              <p class="text-[10px] text-emerald-200/80 tracking-widest uppercase">Partner of Healthy Life</p>
+            </div>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">
+            Rooted in Sri Lankan Ayurvedic Wisdom. Crafted for Modern Elegance.
+          </h2>
+          <div class="w-16 h-0.5 bg-brand-gold"></div>
+          <p class="text-emerald-100/80 text-sm sm:text-base leading-relaxed">
+            At <strong>AM Soul Mate</strong>, we believe true skin radiance cannot be synthesized in a chemical vat. Our artisanal formulas merge sacred Ayurvedic medicinal botany—pure saffron, fermented rice hydrosols, cold-pressed seed oils, and healing mountain herbs—with contemporary glass-skin rituals.
+          </p>
+          <p class="text-emerald-100/80 text-sm leading-relaxed">
+            Every bottle and soap bar is lovingly blended in small batches to preserve the raw potency of each live botanical extract.
+          </p>
+
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-brand-forest text-center">
+            <div>
+              <div class="font-serif text-2xl font-bold text-brand-gold">100%</div>
+              <div class="text-[11px] text-emerald-200 uppercase tracking-wider mt-0.5">Herbal Ingredients</div>
+            </div>
+            <div>
+              <div class="font-serif text-2xl font-bold text-brand-gold">10k+</div>
+              <div class="text-[11px] text-emerald-200 uppercase tracking-wider mt-0.5">Happy Clients</div>
+            </div>
+            <div>
+              <div class="font-serif text-2xl font-bold text-brand-gold">24hr</div>
+              <div class="text-[11px] text-emerald-200 uppercase tracking-wider mt-0.5">WhatsApp Support</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div class="rounded-2xl overflow-hidden shadow-2xl border border-brand-gold/30">
+            <img src="images/kumkumadi_serum.jpg" alt="Pure Kumkumadi Face Serum" class="w-full h-64 object-cover">
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-2xl border border-brand-gold/30 mt-6">
+            <img src="images/rose_face_toner.jpg" alt="Rose Face Mist" class="w-full h-64 object-cover">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-brand-dark text-white border-t border-brand-forest/60 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-brand-forest/40">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="logo.png" alt="AM Soul Mate - Partner of Healthy Life" class="h-16 w-auto object-contain rounded-lg shadow-md border border-brand-gold/30">
+          </div>
+          <p class="text-xs text-emerald-100/70 leading-relaxed max-w-sm">
+            Handcrafted pure herbal remedies, organic cleansers, and glass skin toners for natural luminous beauty across Sri Lanka.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://wa.me/94756771358" target="_blank" class="w-8 h-8 rounded-full bg-brand-forest hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition text-brand-goldLight">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </a>
+            <a href="https://wa.me/94756771358" target="_blank" class="w-8 h-8 rounded-full bg-brand-forest hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition text-brand-goldLight">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-full bg-brand-forest hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition text-brand-goldLight">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-cinzel text-xs font-bold text-brand-gold uppercase tracking-widest mb-4">Categories</h4>
+          <ul class="space-y-2 text-xs text-emerald-100/80">
+            <li><a href="#catalog" onclick="filterCategory('skincare')" class="hover:text-brand-gold transition">Skincare &amp; Serums</a></li>
+            <li><a href="#catalog" onclick="filterCategory('haircare')" class="hover:text-brand-gold transition">Hair Care &amp; Oils</a></li>
+            <li><a href="#catalog" onclick="filterCategory('cleansers')" class="hover:text-brand-gold transition">Artisan Herbal Soaps</a></li>
+            <li><a href="#catalog" onclick="filterCategory('bodycare')" class="hover:text-brand-gold transition">Body Scrubs &amp; Creams</a></li>
+            <li><a href="#catalog" onclick="filterCategory('combos')" class="hover:text-brand-gold transition">Value Combos &amp; Kits</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care -->
+        <div>
+          <h4 class="font-cinzel text-xs font-bold text-brand-gold uppercase tracking-widest mb-4">Customer Care</h4>
+          <ul class="space-y-2 text-xs text-emerald-100/80">
+            <li><a href="https://wa.me/94756771358?text=Track%20my%20order" target="_blank" class="hover:text-brand-gold transition">Track My Order</a></li>
+            <li><a href="https://wa.me/94756771358?text=Free%20Skin%20Consultation" target="_blank" class="hover:text-brand-gold transition">Free Skin Consultation</a></li>
+            <li><a href="#" class="hover:text-brand-gold transition">Delivery Information (Sri Lanka)</a></li>
+            <li><a href="#" class="hover:text-brand-gold transition">Payment &amp; COD Policy</a></li>
+            <li><a href="#" class="hover:text-brand-gold transition">Authenticity Guarantee</a></li>
+          </ul>
+        </div>
+
+        <!-- WhatsApp Hotline & Location -->
+        <div>
+          <h4 class="font-cinzel text-xs font-bold text-brand-gold uppercase tracking-widest mb-4">Direct Contact</h4>
+          <div class="space-y-3 text-xs text-emerald-100/80">
+            <div class="flex items-start gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-brand-gold shrink-0 mt-0.5"></i>
+              <span>Colombo &amp; Islandwide, Sri Lanka</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-[#25D366] shrink-0"></i>
+              <a href="tel:+94756771358" class="hover:text-brand-gold font-semibold">+94 75 677 1358</a>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4 text-[#25D366] shrink-0"></i>
+              <a href="https://wa.me/94756771358" target="_blank" class="hover:text-brand-gold font-semibold">WhatsApp Available 24/7</a>
+            </div>
+            <div class="pt-2">
+              <span class="inline-block px-2.5 py-1 rounded bg-brand-forest text-brand-goldLight text-[10px] font-bold">
+                Islandwide Courier Delivery
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-emerald-200/50 gap-4">
+        <div>&copy; 2026 AM Soul Mate Herbal Beauty Care. All Rights Reserved.</div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition">Terms of Service</a>
+          <a href="#" class="hover:text-white transition">Herbal Safety</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    
+    <!-- WhatsApp Floating Trigger with Ping -->
+    <a 
+      href="https://wa.me/94756771358?text=Hello%20AM%20Soul%20Mate!%20I%20would%20like%20to%20place%20an%20order." 
+      target="_blank"
+      class="group relative flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3.5 rounded-full shadow-2xl transition-all duration-300 wa-pulse"
+      title="Chat on WhatsApp"
+    >
+      <i data-lucide="message-circle" class="w-6 h-6 fill-white text-white"></i>
+      <span class="text-xs font-bold tracking-wide pr-1">Chat on WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- ==================== CART SLIDE-OUT DRAWER ==================== -->
+  <div id="cartDrawerBackdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none" onclick="closeCartDrawer()"></div>
+
+  <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[480px] bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 bg-brand-emerald text-white flex items-center justify-between border-b border-brand-forest">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="AM Soul Mate" class="h-9 w-auto object-contain rounded">
+        <div>
+          <h3 class="font-serif font-bold text-base leading-tight">Your Herbal Basket</h3>
+          <span class="text-[10px] text-emerald-200 uppercase tracking-wider">AM Soul Mate</span>
+        </div>
+        <span id="cartDrawerCount" class="text-xs bg-brand-dark px-2.5 py-0.5 rounded-full text-brand-gold font-bold ml-1">0 items</span>
+      </div>
+      <button onclick="closeCartDrawer()" class="p-1.5 rounded-full hover:bg-brand-forest text-white/80 hover:text-white transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Free Delivery Progress Bar -->
+    <div class="bg-brand-pearl px-5 py-3 border-b border-brand-gold/20">
+      <div class="flex justify-between text-xs font-semibold mb-1 text-brand-charcoal">
+        <span id="deliveryProgressText">Islandwide Delivery: LKR 350 (Free over LKR 4,000)</span>
+      </div>
+      <div class="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
+        <div id="deliveryProgressBar" class="h-full bg-brand-gold transition-all duration-500" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scrollable Container -->
+    <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-4">
+      <!-- Empty Cart State -->
+      <div id="emptyCartView" class="py-16 text-center space-y-4">
+        <div class="w-16 h-16 rounded-full bg-brand-pearl mx-auto flex items-center justify-center text-brand-goldDark">
+          <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+        </div>
+        <h4 class="font-serif font-bold text-gray-800 text-lg">Your Basket is Empty</h4>
+        <p class="text-xs text-gray-500 max-w-xs mx-auto">Explore our pure herbal skincare and revitalizing hair elixirs to start glowing.</p>
+        <button onclick="closeCartDrawer(); window.location.href='#catalog'" class="gold-gradient-btn text-brand-dark font-bold text-xs px-6 py-2.5 rounded-full shadow">
+          Explore Products
+        </button>
+      </div>
+    </div>
+
+    <!-- Customer Details & Order Checkout Form (Shown when cart has items) -->
+    <div id="cartCheckoutSection" class="p-5 bg-brand-pearl border-t border-gray-200 space-y-4 hidden">
+      
+      <!-- Order Customer Details Inputs -->
+      <div class="space-y-2.5">
+        <div class="text-xs font-bold text-brand-dark uppercase tracking-wider flex items-center justify-between">
+          <span>Customer &amp; Delivery Info</span>
+          <span class="text-[10px] text-gray-500 lowercase font-normal">*required for WhatsApp order</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <input 
+            type="text" 
+            id="orderCustName" 
+            placeholder="Your Full Name *" 
+            class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brand-gold bg-white"
+            required
+          >
+          <input 
+            type="tel" 
+            id="orderCustPhone" 
+            placeholder="Phone / WhatsApp Number *" 
+            class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brand-gold bg-white"
+            required
+          >
+        </div>
+
+        <input 
+          type="text" 
+          id="orderCustAddress" 
+          placeholder="Street Address / House No. *" 
+          class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brand-gold bg-white"
+          required
+        >
+
+        <div class="grid grid-cols-2 gap-2">
+          <input 
+            type="text" 
+            id="orderCustCity" 
+            placeholder="City / Town (e.g. Colombo, Kandy) *" 
+            class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brand-gold bg-white"
+            required
+          >
+          <select 
+            id="orderCustDistrict" 
+            class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brand-gold bg-white"
+          >
+            <option value="Colombo">Colombo</option>
+            <option value="Gampaha">Gampaha</option>
+            <option value="Kalutara">Kalutara</option>
+            <option value="Kandy">Kandy</option>
+            <option value="Galle">Galle</option>
+            <option value="Matara">Matara</option>
+            <option value="Kurunegala">Kurunegala</option>
+            <option value="Jaffna">Jaffna</option>
+            <option value="Other District">Other Sri Lanka District</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Financial Calculation -->
+      <div class="pt-2 space-y-1.5 text-xs border-t border-gray-200">
+        <div class="flex justify-between text-gray-600">
+          <span>Subtotal</span>
+          <span id="cartSubtotal" class="font-bold text-gray-900">LKR 0</span>
+        </div>
+        <div class="flex justify-between text-gray-600">
+          <span>Islandwide Delivery</span>
+          <span id="cartDelivery" class="font-semibold text-brand-forest">LKR 350</span>
+        </div>
+        <div class="flex justify-between text-sm font-bold text-brand-dark pt-1 border-t border-gray-200">
+          <span>Total (LKR)</span>
+          <span id="cartTotal" class="text-base text-brand-emerald">LKR 0</span>
+        </div>
+      </div>
+
+      <!-- Submit Order via WhatsApp Button -->
+      <button 
+        onclick="submitCartToWhatsApp()" 
+        class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-sm py-3.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 group"
+      >
+        <i data-lucide="message-circle" class="w-5 h-5 fill-white text-white group-hover:scale-110 transition-transform"></i>
+        <span>Place Order via WhatsApp</span>
+      </button>
+
+      <p class="text-[11px] text-center text-gray-500">
+        🔒 Formats your cart into an itemized message to our WhatsApp hotline: <strong>+94 75 677 1358</strong>.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- ==================== PRODUCT QUICK-VIEW MODAL ==================== -->
+  <div id="quickViewBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeQuickView()">
+    <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col" onclick="event.stopPropagation()">
+      
+      <!-- Close button -->
+      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-dark/80 text-white flex items-center justify-center hover:bg-black transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="overflow-y-auto flex-1 p-6 sm:p-8 space-y-6">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+          <!-- Product Modal Image -->
+          <div class="rounded-2xl overflow-hidden aspect-square border border-gray-200 bg-brand-pearl shadow-inner">
+            <img id="modalImage" src="" alt="Product" class="w-full h-full object-cover">
+          </div>
+
+          <!-- Product Modal Header & Price -->
+          <div class="space-y-3">
+            <div id="modalBadge" class="inline-block bg-brand-emerald text-brand-gold text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full">
+              Bestseller
+            </div>
+            <h3 id="modalTitle" class="font-serif text-2xl font-bold text-brand-dark"></h3>
+            <p id="modalSubtitle" class="text-xs text-gray-500 font-medium"></p>
+            
+            <div class="flex items-baseline gap-3 pt-1">
+              <span id="modalPrice" class="font-serif text-2xl font-bold text-brand-emerald"></span>
+              <span id="modalOriginalPrice" class="text-sm line-through text-gray-400"></span>
+              <span id="modalDiscountTag" class="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded"></span>
+            </div>
+
+            <div class="text-xs text-gray-600 flex items-center gap-2">
+              <span class="font-semibold text-brand-dark">Volume / Size:</span>
+              <span id="modalSize" class="bg-gray-100 px-2 py-0.5 rounded text-gray-800 font-medium"></span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="pt-3 space-y-2">
+              <button 
+                id="modalAddToCartBtn"
+                class="w-full gold-gradient-btn text-brand-dark font-bold text-xs py-3 px-4 rounded-xl shadow transition flex items-center justify-center gap-2"
+              >
+                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                <span>Add to Herbal Basket</span>
+              </button>
+
+              <button 
+                id="modalWhatsAppBtn"
+                class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs py-3 px-4 rounded-xl shadow transition flex items-center justify-center gap-2"
+              >
+                <i data-lucide="message-circle" class="w-4 h-4 fill-white text-white"></i>
+                <span>Buy Instant via WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description & Details Tabs -->
+        <div class="space-y-4 pt-4 border-t border-gray-100 text-xs text-gray-700 leading-relaxed">
+          <div>
+            <h4 class="font-cinzel text-xs font-bold text-brand-dark uppercase tracking-wider mb-1.5">Herbal Formulation &amp; Benefits</h4>
+            <p id="modalDescription" class="text-gray-600 mb-2"></p>
+            <ul id="modalBenefits" class="list-disc pl-4 space-y-1 text-gray-700"></ul>
+          </div>
+
+          <div class="bg-brand-pearl p-3.5 rounded-xl border border-brand-gold/20">
+            <h4 class="font-cinzel text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Key Botanical Ingredients</h4>
+            <p id="modalIngredients" class="text-gray-600 italic"></p>
+          </div>
+
+          <div>
+            <h4 class="font-cinzel text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Daily Ritual / How to Use</h4>
+            <p id="modalUsage" class="text-gray-600"></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT APP LOGIC ==================== -->
+  <script type="module">
+    import { PRODUCTS, CATEGORIES } from './products.js';
+
+    // State Variables
+    let currentCategory = 'all';
+    let searchQuery = '';
+    let sortOption = 'featured';
+    let cart = JSON.parse(localStorage.getItem('am_soul_mate_cart') || '[]');
+
+    // Initialize UI
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      renderProducts();
+      updateCartUI();
+    });
+
+    // Render Product Cards
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      let filtered = PRODUCTS.filter(p => {
+        const matchesCategory = currentCategory === 'all' || p.category === currentCategory;
+        const matchesSearch = !searchQuery || 
+          p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+          p.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.description.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      // Sorting
+      if (sortOption === 'price-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortOption === 'price-desc') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortOption === 'rating') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      }
+
+      document.getElementById('productCount').textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center space-y-3">
+            <div class="w-12 h-12 rounded-full bg-gray-100 mx-auto flex items-center justify-center text-gray-400">
+              <i data-lucide="search" class="w-6 h-6"></i>
+            </div>
+            <p class="text-sm font-semibold text-gray-700">No herbal products found matching "${searchQuery}"</p>
+            <button onclick="clearSearch()" class="text-xs text-brand-goldDark underline font-medium">Reset Search</button>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      grid.innerHTML = filtered.map(p => {
+        const discountPct = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
+        return `
+          <div class="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            
+            <!-- Image & Badges -->
+            <div class="relative aspect-square overflow-hidden bg-brand-pearl cursor-pointer" onclick="openQuickView('${p.id}')">
+              <img 
+                src="${p.image}" 
+                alt="${p.name}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              >
+              
+              <!-- Badge -->
+              <div class="absolute top-3 left-3 bg-brand-emerald text-brand-gold text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full shadow-md">
+                ${p.badge || '100% Herbal'}
+              </div>
+
+              <!-- Discount Pill -->
+              ${discountPct > 0 ? `
+                <div class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                  -${discountPct}%
+                </div>
+              ` : ''}
+
+              <!-- Quick View Floating Button on Hover -->
+              <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
+                <button class="bg-white/95 text-brand-dark text-xs font-bold px-4 py-2 rounded-full shadow-lg hover:bg-brand-gold hover:text-brand-dark transition transform translate-y-2 group-hover:translate-y-0 duration-300 flex items-center gap-1.5">
+                  <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                  <span>Quick View</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+              <div>
+                <div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+                  <span class="uppercase tracking-wider font-semibold text-[10px] text-brand-goldDark">${p.category}</span>
+                  <div class="flex items-center text-amber-500 text-[11px] font-bold">
+                    <span>★ ${p.rating}</span>
+                    <span class="text-gray-400 ml-1 font-normal">(${p.reviewsCount})</span>
+                  </div>
+                </div>
+
+                <h3 onclick="openQuickView('${p.id}')" class="font-serif font-bold text-base text-brand-dark group-hover:text-brand-goldDark transition cursor-pointer line-clamp-1">
+                  ${p.name}
+                </h3>
+                <p class="text-xs text-gray-500 line-clamp-1 mt-0.5">${p.subtitle}</p>
+              </div>
+
+              <!-- Price & Size -->
+              <div class="pt-2 border-t border-gray-100 flex items-baseline justify-between">
+                <div>
+                  <span class="font-serif font-bold text-lg text-brand-emerald">LKR ${p.price.toLocaleString()}</span>
+                  ${p.originalPrice > p.price ? `
+                    <span class="text-xs line-through text-gray-400 ml-1.5">LKR ${p.originalPrice.toLocaleString()}</span>
+                  ` : ''}
+                </div>
+                <span class="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded border border-gray-100">${p.size}</span>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                <button 
+                  onclick="addToCart('${p.id}')" 
+                  class="bg-brand-emerald hover:bg-brand-forest text-white text-xs font-semibold py-2.5 px-3 rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm"
+                >
+                  <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-brand-gold"></i>
+                  <span>Add</span>
+                </button>
+
+                <button 
+                  onclick="quickOrderWhatsApp('${p.id}')" 
+                  class="bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold py-2.5 px-3 rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm"
+                  title="Buy instantly on WhatsApp"
+                >
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-white text-white"></i>
+                  <span>Order</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // Category Filtering
+    window.filterCategory = function(catId) {
+      currentCategory = catId;
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-emerald', 'text-white', 'shadow-md', 'border-brand-emerald');
+        btn.classList.add('bg-white', 'text-brand-dark', 'hover:bg-brand-pearl', 'border-gray-200');
+      });
+
+      const activeBtn = document.getElementById(`cat-${catId}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-brand-emerald', 'text-white', 'shadow-md', 'border-brand-emerald');
+        activeBtn.classList.remove('bg-white', 'text-brand-dark', 'hover:bg-brand-pearl', 'border-gray-200');
+      }
+
+      renderProducts();
+    };
+
+    // Live Search
+    window.handleSearch = function(val) {
+      searchQuery = val;
+      renderProducts();
+    };
+
+    window.clearSearch = function() {
+      searchQuery = '';
+      document.getElementById('searchInput').value = '';
+      renderProducts();
+    };
+
+    // Sorting
+    window.handleSort = function(val) {
+      sortOption = val;
+      renderProducts();
+    };
+
+    // Switch Hero Featured Item
+    window.switchHeroFeature = function(id, img, title, tag) {
+      document.getElementById('heroSpotlightImage').src = img;
+      document.getElementById('heroSpotlightTitle').textContent = title;
+      document.getElementById('heroSpotlightTag').textContent = tag;
+    };
+
+    // Quick View Modal
+    window.openQuickView = function(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      document.getElementById('modalImage').src = product.image;
+      document.getElementById('modalBadge').textContent = product.badge || '100% Herbal';
+      document.getElementById('modalTitle').textContent = product.name;
+      document.getElementById('modalSubtitle').textContent = product.subtitle;
+      document.getElementById('modalPrice').textContent = `LKR ${product.price.toLocaleString()}`;
+      document.getElementById('modalOriginalPrice').textContent = product.originalPrice ? `LKR ${product.originalPrice.toLocaleString()}` : '';
+      
+      const discountPct = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+      document.getElementById('modalDiscountTag').textContent = discountPct > 0 ? `Save ${discountPct}%` : '';
+      document.getElementById('modalSize').textContent = product.size;
+
+      document.getElementById('modalDescription').textContent = product.description;
+      document.getElementById('modalIngredients').textContent = product.ingredients;
+      document.getElementById('modalUsage').textContent = product.usage;
+
+      const benefitsUl = document.getElementById('modalBenefits');
+      benefitsUl.innerHTML = (product.benefits || []).map(b => `<li>${b}</li>`).join('');
+
+      document.getElementById('modalAddToCartBtn').onclick = () => {
+        addToCart(product.id);
+        closeQuickView();
+        openCartDrawer();
+      };
+
+      document.getElementById('modalWhatsAppBtn').onclick = () => {
+        quickOrderWhatsApp(product.id);
+      };
+
+      const backdrop = document.getElementById('quickViewBackdrop');
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      lucide.createIcons();
+    };
+
+    window.closeQuickView = function() {
+      const backdrop = document.getElementById('quickViewBackdrop');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+    };
+
+    // Cart Management
+    window.addToCart = function(productId) {
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ id: productId, quantity: 1 });
+      }
+      saveCart();
+      updateCartUI();
+    };
+
+    window.updateCartQuantity = function(productId, delta) {
+      const item = cart.find(i => i.id === productId);
+      if (!item) return;
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.id !== productId);
+      }
+      saveCart();
+      updateCartUI();
+    };
+
+    window.removeFromCart = function(productId) {
+      cart = cart.filter(i => i.id !== productId);
+      saveCart();
+      updateCartUI();
+    };
+
+    function saveCart() {
+      localStorage.setItem('am_soul_mate_cart', JSON.stringify(cart));
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cartBadgeCount').textContent = totalCount;
+      document.getElementById('cartDrawerCount').textContent = `${totalCount} item${totalCount === 1 ? '' : 's'}`;
+
+      const cartList = document.getElementById('cartItemsList');
+      const checkoutSection = document.getElementById('cartCheckoutSection');
+      const emptyView = document.getElementById('emptyCartView');
+
+      if (cart.length === 0) {
+        emptyView.classList.remove('hidden');
+        checkoutSection.classList.add('hidden');
+        cartList.innerHTML = '';
+        cartList.appendChild(emptyView);
+        return;
+      }
+
+      emptyView.classList.add('hidden');
+      checkoutSection.classList.remove('hidden');
+
+      let subtotal = 0;
+      cartList.innerHTML = cart.map(item => {
+        const product = PRODUCTS.find(p => p.id === item.id);
+        if (!product) return '';
+        const itemTotal = product.price * item.quantity;
+        subtotal += itemTotal;
+
+        return `
+          <div class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <img src="${product.image}" class="w-16 h-16 rounded-xl object-cover border border-gray-200" alt="${product.name}">
+            <div class="flex-1 min-w-0">
+              <h4 class="font-serif font-bold text-xs text-brand-dark truncate">${product.name}</h4>
+              <p class="text-[11px] text-gray-500">LKR ${product.price.toLocaleString()} each</p>
+              <div class="flex items-center gap-2 mt-2">
+                <button onclick="updateCartQuantity('${item.id}', -1)" class="w-6 h-6 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-xs font-bold">-</button>
+                <span class="text-xs font-bold px-1">${item.quantity}</span>
+                <button onclick="updateCartQuantity('${item.id}', 1)" class="w-6 h-6 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-xs font-bold">+</button>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="font-serif font-bold text-xs text-brand-emerald">LKR ${itemTotal.toLocaleString()}</div>
+              <button onclick="removeFromCart('${item.id}')" class="text-gray-400 hover:text-red-500 mt-2 p-1 text-[11px]">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Delivery calculation: Free over LKR 4,000, else LKR 350
+      const freeDeliveryThreshold = 4000;
+      const deliveryFee = subtotal >= freeDeliveryThreshold ? 0 : 350;
+      const grandTotal = subtotal + deliveryFee;
+
+      document.getElementById('cartSubtotal').textContent = `LKR ${subtotal.toLocaleString()}`;
+      document.getElementById('cartDelivery').textContent = deliveryFee === 0 ? 'FREE (Special Offer)' : `LKR ${deliveryFee}`;
+      document.getElementById('cartTotal').textContent = `LKR ${grandTotal.toLocaleString()}`;
+
+      // Progress bar
+      const progressPercent = Math.min(100, Math.round((subtotal / freeDeliveryThreshold) * 100));
+      document.getElementById('deliveryProgressBar').style.width = `${progressPercent}%`;
+      const progressText = document.getElementById('deliveryProgressText');
+      if (subtotal >= freeDeliveryThreshold) {
+        progressText.innerHTML = `<span class="text-emerald-700 font-bold">🎉 Congratulations! You have unlocked Free Islandwide Delivery!</span>`;
+      } else {
+        const remaining = freeDeliveryThreshold - subtotal;
+        progressText.innerHTML = `Add <strong>LKR ${remaining.toLocaleString()}</strong> more to get <strong>Free Delivery</strong>!`;
+      }
+
+      lucide.createIcons();
+    }
+
+    window.openCartDrawer = function() {
+      document.getElementById('cartDrawer').classList.remove('translate-x-full');
+      document.getElementById('cartDrawerBackdrop').classList.remove('opacity-0', 'pointer-events-none');
+    };
+
+    window.closeCartDrawer = function() {
+      document.getElementById('cartDrawer').classList.add('translate-x-full');
+      document.getElementById('cartDrawerBackdrop').classList.add('opacity-0', 'pointer-events-none');
+    };
+
+    // Instant 1-Click WhatsApp Direct Buy for a Single Product
+    window.quickOrderWhatsApp = function(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      const message = `🌿 *NEW ORDER INQUIRY - AM SOUL MATE* 🌿\n\n` +
+        `Hello AM Soul Mate team,\nI would like to order the following herbal product:\n\n` +
+        `✨ *Product:* ${product.name}\n` +
+        `💰 *Price:* LKR ${product.price.toLocaleString()}\n` +
+        `📦 *Size:* ${product.size}\n\n` +
+        `Please let me know how to proceed with payment and islandwide delivery. Thank you!`;
+
+      const whatsappUrl = `https://wa.me/94756771358?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    };
+
+    // Full Shopping Cart WhatsApp Order Submission
+    window.submitCartToWhatsApp = function() {
+      const name = document.getElementById('orderCustName').value.trim();
+      const phone = document.getElementById('orderCustPhone').value.trim();
+      const address = document.getElementById('orderCustAddress').value.trim();
+      const city = document.getElementById('orderCustCity').value.trim();
+      const district = document.getElementById('orderCustDistrict').value;
+
+      if (!name || !phone || !address || !city) {
+        alert('Please fill in your Name, Phone Number, Address, and City so we can process your order.');
+        return;
+      }
+
+      if (cart.length === 0) {
+        alert('Your cart is empty.');
+        return;
+      }
+
+      let subtotal = 0;
+      let itemsListText = '';
+
+      cart.forEach((item, index) => {
+        const product = PRODUCTS.find(p => p.id === item.id);
+        if (product) {
+          const itemTotal = product.price * item.quantity;
+          subtotal += itemTotal;
+          itemsListText += `${index + 1}. *${product.name}* (Qty: ${item.quantity}) - LKR ${itemTotal.toLocaleString()}\n`;
+        }
+      });
+
+      const freeDeliveryThreshold = 4000;
+      const deliveryFee = subtotal >= freeDeliveryThreshold ? 0 : 350;
+      const grandTotal = subtotal + deliveryFee;
+
+      const message = `🌿 *NEW ORDER - AM SOUL MATE HERBAL STORE* 🌿\n` +
+        `----------------------------------------\n` +
+        `👤 *Customer Name:* ${name}\n` +
+        `📞 *Phone / WhatsApp:* ${phone}\n` +
+        `📍 *Delivery Address:* ${address}\n` +
+        `🏙️ *City / District:* ${city}, ${district} (Sri Lanka)\n` +
+        `----------------------------------------\n` +
+        `📦 *ORDER DETAILS:*\n${itemsListText}` +
+        `----------------------------------------\n` +
+        `💰 *Subtotal:* LKR ${subtotal.toLocaleString()}\n` +
+        `🚚 *Islandwide Delivery:* ${deliveryFee === 0 ? 'FREE' : `LKR ${deliveryFee}`}\n` +
+        `✨ *GRAND TOTAL:* LKR ${grandTotal.toLocaleString()}\n` +
+        `----------------------------------------\n` +
+        `Please confirm product availability and share bank details / Cash on Delivery confirmation. Thank you!`;
+
+      const whatsappUrl = `https://wa.me/94756771358?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    };
+  </script>
+
+</body>
+</html>
