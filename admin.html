@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AM Soul Mate | Admin Portal - Products & Categories Management</title>
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              emerald: '#0c2419',
+              dark: '#081710',
+              forest: '#143d2b',
+              sage: '#345e49',
+              gold: '#c5a059',
+              goldLight: '#eed58e',
+              goldDark: '#9c7732',
+              cream: '#fdfbf7',
+              pearl: '#f8f5ee',
+              charcoal: '#1a1d1b'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .gold-gradient-btn {
+      background: linear-gradient(135deg, #c5a059 0%, #e2c67b 50%, #b28a38 100%);
+      transition: all 0.25s ease;
+    }
+    .gold-gradient-btn:hover {
+      background: linear-gradient(135deg, #d4af37 0%, #fae69e 50%, #c5a059 100%);
+      box-shadow: 0 8px 20px -4px rgba(197, 160, 89, 0.45);
+      transform: translateY(-1px);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #c5a059;
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1ede4;
+    }
+  </style>
+</head>
+
+<body class="bg-[#081710] text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- ==================== TOAST NOTIFICATION CONTAINER ==================== -->
+  <div id="toastContainer" class="fixed top-5 right-5 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ==================== LOGIN VIEW (GATED ACCESS) ==================== -->
+  <div id="loginScreen" class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-[#081710] via-[#0c2419] to-[#040c08] relative overflow-hidden">
+    <!-- Ambient ambient glow -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-brand-gold/15 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-md w-full bg-[#0c2419]/90 border border-brand-gold/40 rounded-3xl p-8 sm:p-10 shadow-2xl relative z-10 backdrop-blur-xl">
+      <!-- Logo & Brand Header -->
+      <div class="text-center space-y-3 mb-8">
+        <div class="h-16 w-16 mx-auto rounded-2xl bg-[#081710] border border-brand-gold/50 p-2 shadow-lg flex items-center justify-center overflow-hidden">
+          <img src="logo.png" alt="AM Soul Mate" class="h-full w-full object-contain">
+        </div>
+        <div>
+          <h1 class="font-serif text-2xl font-bold text-white tracking-wide">AM Soul Mate</h1>
+          <p class="font-cinzel text-[10px] tracking-[0.25em] text-brand-gold uppercase font-bold mt-1">Admin Portal Access</p>
+        </div>
+        <p class="text-xs text-emerald-200/70">Enter your official credentials to manage products, categories, images &amp; pricing.</p>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-5">
+        <div>
+          <label class="block text-xs font-semibold text-brand-goldLight uppercase tracking-wider mb-2" for="loginEmail">
+            Admin Email Address
+          </label>
+          <div class="relative">
+            <input 
+              type="email" 
+              id="loginEmail" 
+              value="admin@soul.com"
+              required 
+              class="w-full bg-[#081710] text-white text-sm rounded-xl pl-10 pr-4 py-3 border border-brand-forest focus:outline-none focus:border-brand-gold transition placeholder-gray-500"
+              placeholder="admin@soul.com"
+            >
+            <i data-lucide="mail" class="w-4 h-4 text-brand-gold absolute left-3.5 top-3.5"></i>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-brand-goldLight uppercase tracking-wider mb-2" for="loginPassword">
+            Admin Password
+          </label>
+          <div class="relative">
+            <input 
+              type="password" 
+              id="loginPassword" 
+              value="123456"
+              required 
+              class="w-full bg-[#081710] text-white text-sm rounded-xl pl-10 pr-4 py-3 border border-brand-forest focus:outline-none focus:border-brand-gold transition placeholder-gray-500"
+              placeholder="••••••"
+            >
+            <i data-lucide="lock" class="w-4 h-4 text-brand-gold absolute left-3.5 top-3.5"></i>
+          </div>
+        </div>
+
+        <div id="loginError" class="hidden text-xs text-red-400 bg-red-950/60 border border-red-800/80 p-3 rounded-xl flex items-center gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
+          <span>Invalid email or password. Use: <strong>admin@soul.com</strong> / <strong>123456</strong></span>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full gold-gradient-btn text-brand-dark font-bold text-sm py-3.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2"
+        >
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span>Sign In to Dashboard</span>
+        </button>
+
+        <div class="pt-2 text-center">
+          <a href="index.html" class="text-xs text-emerald-300 hover:text-brand-gold transition inline-flex items-center gap-1.5">
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+            <span>Back to Public Storefront</span>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN ADMIN DASHBOARD ==================== -->
+  <div id="adminDashboard" class="hidden min-h-screen flex flex-col bg-[#f8f5ee]">
+    
+    <!-- Top Navigation Header -->
+    <header class="bg-brand-emerald text-white border-b border-brand-forest sticky top-0 z-40 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+        
+        <!-- Brand & Title -->
+        <div class="flex items-center gap-3">
+          <div class="h-11 w-11 rounded-xl bg-[#081710] border border-brand-gold/40 p-1 flex items-center justify-center shadow overflow-hidden">
+            <img src="logo.png" alt="AM Soul Mate" class="h-full w-full object-contain">
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-serif font-bold text-lg leading-none text-white">AM Soul Mate</span>
+              <span class="bg-brand-gold/20 text-brand-gold text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-gold/40 uppercase">Admin Portal</span>
+            </div>
+            <p class="text-[11px] text-emerald-200/80 mt-0.5">Product Catalog &amp; Category Manager</p>
+          </div>
+        </div>
+
+        <!-- Right Side Nav Actions -->
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a 
+            href="index.html" 
+            target="_blank" 
+            class="hidden sm:inline-flex items-center gap-1.5 text-xs text-brand-goldLight hover:text-white bg-brand-forest/60 hover:bg-brand-forest px-3 py-2 rounded-lg border border-brand-gold/30 transition"
+          >
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span>View Storefront</span>
+          </a>
+
+          <div class="hidden md:flex items-center gap-2 text-xs text-emerald-200 bg-brand-dark/50 px-3 py-1.5 rounded-lg border border-brand-forest">
+            <i data-lucide="user-check" class="w-3.5 h-3.5 text-brand-gold"></i>
+            <span>admin@soul.com</span>
+          </div>
+
+          <button 
+            onclick="handleLogout()" 
+            class="inline-flex items-center gap-1.5 text-xs font-semibold text-red-300 hover:text-white hover:bg-red-900/40 px-3 py-2 rounded-lg transition"
+            title="Log Out"
+          >
+            <i data-lucide="log-out" class="w-4 h-4"></i>
+            <span class="hidden sm:inline">Logout</span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 space-y-8">
+      
+      <!-- Metrics Overview Cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="bg-white rounded-2xl p-5 border border-gray-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Total Products</p>
+            <h3 id="statTotalProducts" class="font-serif text-2xl font-bold text-brand-dark mt-1">0</h3>
+            <span class="text-[11px] text-emerald-700 font-medium">In Live Store Catalog</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-brand-emerald/10 text-brand-emerald flex items-center justify-center">
+            <i data-lucide="package" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Categories</p>
+            <h3 id="statTotalCategories" class="font-serif text-2xl font-bold text-brand-dark mt-1">0</h3>
+            <span class="text-[11px] text-brand-goldDark font-medium">Organized Collections</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-brand-goldDark flex items-center justify-center">
+            <i data-lucide="layers" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Bestsellers</p>
+            <h3 id="statBestsellers" class="font-serif text-2xl font-bold text-brand-dark mt-1">0</h3>
+            <span class="text-[11px] text-purple-700 font-medium">Featured Badges</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">WhatsApp Hotline</p>
+            <h3 class="font-sans text-sm font-bold text-brand-dark mt-1">+94 75 677 1358</h3>
+            <span class="text-[11px] text-[#25D366] font-medium">● Orders Connected</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-green-50 text-[#25D366] flex items-center justify-center">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs (Products vs Categories) -->
+      <div class="flex items-center justify-between border-b border-gray-200 pb-4">
+        <div class="flex space-x-2">
+          <button 
+            id="tabBtnProducts" 
+            onclick="switchTab('products')" 
+            class="px-5 py-2.5 rounded-xl font-bold text-xs tracking-wider uppercase transition flex items-center gap-2 bg-brand-emerald text-white shadow"
+          >
+            <i data-lucide="package" class="w-4 h-4 text-brand-gold"></i>
+            <span>Products Manager (<span id="tabCountProducts">0</span>)</span>
+          </button>
+          
+          <button 
+            id="tabBtnCategories" 
+            onclick="switchTab('categories')" 
+            class="px-5 py-2.5 rounded-xl font-bold text-xs tracking-wider uppercase transition flex items-center gap-2 bg-white text-gray-600 hover:text-brand-dark border border-gray-200"
+          >
+            <i data-lucide="layers" class="w-4 h-4 text-gray-500"></i>
+            <span>Categories (<span id="tabCountCategories">0</span>)</span>
+          </button>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="flex items-center gap-2">
+          <button 
+            onclick="confirmResetDefaults()" 
+            class="text-xs text-gray-500 hover:text-red-600 px-3 py-2 rounded-lg border border-gray-200 bg-white hover:bg-red-50 transition flex items-center gap-1.5"
+            title="Reset to 22 factory default products"
+          >
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+            <span class="hidden sm:inline">Reset Defaults</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== TAB 1: PRODUCTS MANAGER ==================== -->
+      <div id="tabContentProducts" class="space-y-6">
+        
+        <!-- Action & Filter Bar -->
+        <div class="bg-white p-4 rounded-2xl border border-gray-200/80 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div class="flex flex-1 flex-col sm:flex-row gap-3 w-full">
+            <!-- Search Filter -->
+            <div class="relative flex-1">
+              <input 
+                type="text" 
+                id="productAdminSearch" 
+                placeholder="Search products by name, tag, or description..." 
+                oninput="filterAdminProducts()"
+                class="w-full pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 text-xs rounded-xl focus:outline-none focus:border-brand-gold"
+              >
+              <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+            </div>
+
+            <!-- Category Filter -->
+            <select 
+              id="productAdminCatFilter" 
+              onchange="filterAdminProducts()" 
+              class="bg-gray-50 border border-gray-200 text-xs rounded-xl px-4 py-2.5 focus:outline-none focus:border-brand-gold"
+            >
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+
+          <!-- Add Product Button -->
+          <button 
+            onclick="openProductModal()" 
+            class="w-full sm:w-auto gold-gradient-btn text-brand-dark font-bold text-xs px-5 py-2.5 rounded-xl shadow transition flex items-center justify-center gap-2 shrink-0"
+          >
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Add New Product</span>
+          </button>
+        </div>
+
+        <!-- Products Table -->
+        <div class="bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="bg-gray-50 text-gray-500 font-semibold uppercase tracking-wider border-b border-gray-200 text-[11px]">
+                  <th class="py-3.5 px-4">Item &amp; Images</th>
+                  <th class="py-3.5 px-4">Category</th>
+                  <th class="py-3.5 px-4">Pricing (LKR)</th>
+                  <th class="py-3.5 px-4">Size</th>
+                  <th class="py-3.5 px-4">Badge</th>
+                  <th class="py-3.5 px-4">Rating</th>
+                  <th class="py-3.5 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody" class="divide-y divide-gray-100">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+          <div id="productsEmptyState" class="hidden py-16 text-center space-y-3">
+            <div class="w-12 h-12 rounded-full bg-gray-100 mx-auto flex items-center justify-center text-gray-400">
+              <i data-lucide="inbox" class="w-6 h-6"></i>
+            </div>
+            <p class="text-sm font-semibold text-gray-700">No products found matching criteria</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== TAB 2: CATEGORIES MANAGER ==================== -->
+      <div id="tabContentCategories" class="hidden space-y-6">
+        
+        <!-- Categories Header & Add Button -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-serif text-lg font-bold text-brand-dark">Store Categories</h3>
+            <p class="text-xs text-gray-500">Categories define the navigation tabs and filter buttons on the main storefront.</p>
+          </div>
+          <button 
+            onclick="openCategoryModal()" 
+            class="gold-gradient-btn text-brand-dark font-bold text-xs px-5 py-2.5 rounded-xl shadow transition flex items-center gap-2"
+          >
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Add New Category</span>
+          </button>
+        </div>
+
+        <!-- Categories Grid -->
+        <div id="categoriesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Dynamically populated -->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: ADD / EDIT PRODUCT ==================== -->
+  <div id="productModalBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-200" onclick="closeProductModal()">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden relative" onclick="event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <div class="p-5 bg-brand-emerald text-white flex items-center justify-between border-b border-brand-forest">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-brand-forest/60 border border-brand-gold/40 flex items-center justify-center text-brand-gold">
+            <i data-lucide="package-plus" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 id="productModalTitle" class="font-serif font-bold text-lg leading-tight">Add New Herbal Product</h3>
+            <p class="text-[11px] text-emerald-200">Fill in product information, upload multiple photos, and set pricing.</p>
+          </div>
+        </div>
+        <button onclick="closeProductModal()" class="w-8 h-8 rounded-full bg-brand-dark/50 hover:bg-brand-forest flex items-center justify-center text-white/80 hover:text-white transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Form) -->
+      <form id="productForm" onsubmit="saveProduct(event)" class="overflow-y-auto p-6 space-y-6 flex-1 custom-scroll text-xs">
+        <input type="hidden" id="editProductId" value="">
+
+        <!-- Basic Info Section -->
+        <div class="space-y-4">
+          <div class="font-cinzel text-xs font-bold text-brand-goldDark uppercase tracking-wider border-b border-gray-100 pb-1.5 flex items-center gap-2">
+            <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+            <span>Basic Product Details</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="md:col-span-2">
+              <label class="block font-semibold text-gray-700 mb-1" for="prodName">Product Title / Name *</label>
+              <input 
+                type="text" 
+                id="prodName" 
+                required 
+                placeholder="e.g. Pure Kumkumadi Miracle Face Serum"
+                class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+              >
+            </div>
+
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1" for="prodSubtitle">Subtitle / Short Tagline *</label>
+              <input 
+                type="text" 
+                id="prodSubtitle" 
+                required 
+                placeholder="e.g. Instant Beauty Secret for Radiant Glass Skin"
+                class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+              >
+            </div>
+
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1" for="prodCategory">Category *</label>
+              <select 
+                id="prodCategory" 
+                required
+                class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-white"
+              >
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing & Inventory Section -->
+        <div class="space-y-4">
+          <div class="font-cinzel text-xs font-bold text-brand-goldDark uppercase tracking-wider border-b border-gray-100 pb-1.5 flex items-center gap-2">
+            <i data-lucide="circle-dollar-sign" class="w-3.5 h-3.5"></i>
+            <span>Pricing &amp; Attributes</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1" for="prodPrice">Selling Price (LKR) *</label>
+              <input 
+                type="number" 
+                id="prodPrice" 
+                required 
+                min="0"
+                placeholder="1500"
+                class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+              >
+            </div>
+
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1" for="prodOriginalPrice">Compare / Original Price (LKR)</label>
+              <input 
+                type="number" 
+                id="prodOriginalPrice" 
+                min="0"
+                placeholder="1800"
+                class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+              >
+            </div>
+
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1" for="prodSize">Size / Volume *</label>
+              <input 
+                type="text" 
+                id="prodSize" 
+                required 
+                placeholder="e.g. 30 ml, 100 g"
+                class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+              >
+            </div>
+
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1" for="prodBadge">Badge Text</label>
+              <input 
+                type="text" 
+                id="prodBadge" 
+                placeholder="e.g. Bestseller, 100% Herbal"
+                class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+              >
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1" for="prodRating">Star Rating (1.0 to 5.0)</label>
+              <input 
+                type="number" 
+                id="prodRating" 
+                step="0.1" 
+                min="1" 
+                max="5" 
+                value="4.9"
+                class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+              >
+            </div>
+
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1" for="prodReviews">Reviews Count</label>
+              <input 
+                type="number" 
+                id="prodReviews" 
+                min="0" 
+                value="98"
+                class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MULTIPLE IMAGES SECTION ================= -->
+        <div class="space-y-4">
+          <div class="font-cinzel text-xs font-bold text-brand-goldDark uppercase tracking-wider border-b border-gray-100 pb-1.5 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <i data-lucide="image" class="w-3.5 h-3.5"></i>
+              <span>Product Images (Upload Multiple)</span>
+            </div>
+            <span class="text-[10px] text-gray-500 font-normal lowercase">First image is cover / primary</span>
+          </div>
+
+          <!-- Upload from Computer or Add URL -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 bg-brand-pearl rounded-2xl border border-brand-gold/20">
+            <!-- File input for computer upload -->
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1">Upload Image Files (Multiple)</label>
+              <input 
+                type="file" 
+                id="prodFileInput" 
+                accept="image/*" 
+                multiple
+                onchange="handleMultipleImageUpload(event)"
+                class="w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-brand-emerald file:text-brand-gold hover:file:bg-brand-forest cursor-pointer"
+              >
+            </div>
+
+            <!-- URL input -->
+            <div>
+              <label class="block font-semibold text-gray-700 mb-1">Or Add Image by Web URL</label>
+              <div class="flex gap-2">
+                <input 
+                  type="text" 
+                  id="prodImageUrlInput" 
+                  placeholder="https://... or images/item.jpg"
+                  class="flex-1 p-2 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-white"
+                >
+                <button 
+                  type="button" 
+                  onclick="addImageUrlToList()" 
+                  class="bg-brand-emerald hover:bg-brand-forest text-white px-3 py-2 rounded-xl font-semibold transition shrink-0"
+                >
+                  Add URL
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Previews Grid -->
+          <div id="imageGalleryPreview" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 min-h-[80px] p-3 bg-gray-50 rounded-2xl border border-dashed border-gray-300">
+            <!-- Dynamic thumbnails rendered here -->
+          </div>
+        </div>
+
+        <!-- Description, Ingredients, Benefits & Usage -->
+        <div class="space-y-4">
+          <div class="font-cinzel text-xs font-bold text-brand-goldDark uppercase tracking-wider border-b border-gray-100 pb-1.5 flex items-center gap-2">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Detailed Descriptions &amp; Rituals</span>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-gray-700 mb-1" for="prodDesc">Full Herbal Description *</label>
+            <textarea 
+              id="prodDesc" 
+              rows="3" 
+              required
+              placeholder="Explain the Ayurvedic heritage, formula, and what makes this herbal elixir unique..."
+              class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+            ></textarea>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-gray-700 mb-1" for="prodIngredients">Key Botanical Ingredients</label>
+            <textarea 
+              id="prodIngredients" 
+              rows="2" 
+              placeholder="e.g. Kashmiri Saffron, Red Sandalwood, Manjistha, Sesame & Almond Oil"
+              class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+            ></textarea>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-gray-700 mb-1" for="prodUsage">Daily Ritual / How to Use</label>
+            <textarea 
+              id="prodUsage" 
+              rows="2" 
+              placeholder="e.g. Dispense 3-4 drops at night and gently massage into cleansed face and neck."
+              class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+            ></textarea>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-gray-700 mb-1" for="prodBenefits">Key Benefits (One benefit per line)</label>
+            <textarea 
+              id="prodBenefits" 
+              rows="3" 
+              placeholder="Visibly brightens and evens skin tone&#10;Reduces dark spots and pigmentation&#10;100% natural, no mineral oils"
+              class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Form Action Footer -->
+        <div class="pt-4 border-t border-gray-200 flex items-center justify-end gap-3 sticky bottom-0 bg-white py-3">
+          <button 
+            type="button" 
+            onclick="closeProductModal()" 
+            class="px-5 py-2.5 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100 font-semibold transition"
+          >
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            class="gold-gradient-btn text-brand-dark font-bold px-6 py-2.5 rounded-xl shadow transition flex items-center gap-2"
+          >
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Save Product to Catalog</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: ADD / EDIT CATEGORY ==================== -->
+  <div id="categoryModalBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-200" onclick="closeCategoryModal()">
+    <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl overflow-hidden relative" onclick="event.stopPropagation()">
+      
+      <!-- Header -->
+      <div class="p-5 bg-brand-emerald text-white flex items-center justify-between border-b border-brand-forest">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-brand-forest/60 border border-brand-gold/40 flex items-center justify-center text-brand-gold">
+            <i data-lucide="folder-plus" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 id="categoryModalTitle" class="font-serif font-bold text-base leading-tight">Add New Category</h3>
+            <p class="text-[11px] text-emerald-200">Organize products on the store navigation</p>
+          </div>
+        </div>
+        <button onclick="closeCategoryModal()" class="w-8 h-8 rounded-full bg-brand-dark/50 hover:bg-brand-forest flex items-center justify-center text-white/80 hover:text-white transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Category Form -->
+      <form id="categoryForm" onsubmit="saveCategory(event)" class="p-6 space-y-4 text-xs">
+        <input type="hidden" id="editCategoryId" value="">
+
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1" for="catName">Category Name *</label>
+          <input 
+            type="text" 
+            id="catName" 
+            required 
+            placeholder="e.g. Body & Spa, Hair Growth, Luxury Soaps" 
+            oninput="autoGenerateSlug(this.value)"
+            class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+          >
+        </div>
+
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1" for="catSlug">Category ID / Slug *</label>
+          <input 
+            type="text" 
+            id="catSlug" 
+            required 
+            placeholder="e.g. bodycare, haircare, cleansers"
+            class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+          >
+          <span class="text-[10px] text-gray-400">Unique lowercase identifier with no spaces (e.g. "skincare")</span>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1" for="catIcon">Icon / Emoji</label>
+          <input 
+            type="text" 
+            id="catIcon" 
+            placeholder="e.g. ✨, 🌿, 🧼, 🌸, 🎁 or Lucide name"
+            class="w-full p-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-gold bg-gray-50/50"
+          >
+        </div>
+
+        <div class="pt-4 border-t border-gray-200 flex items-center justify-end gap-3">
+          <button 
+            type="button" 
+            onclick="closeCategoryModal()" 
+            class="px-4 py-2 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100 font-semibold transition"
+          >
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            class="gold-gradient-btn text-brand-dark font-bold px-5 py-2 rounded-xl shadow transition flex items-center gap-1.5"
+          >
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Save Category</span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ADMIN LOGIC ==================== -->
+  <script type="module">
+    import { PRODUCTS as DEFAULT_PRODUCTS, CATEGORIES as DEFAULT_CATEGORIES } from './products.js';
+
+    // Storage keys
+    const KEY_PRODUCTS = 'am_soul_mate_products';
+    const KEY_CATEGORIES = 'am_soul_mate_categories';
+    const KEY_AUTH = 'am_soul_admin_auth';
+
+    // Admin State
+    let products = [];
+    let categories = [];
+    let currentUploadedImages = []; // Array of image strings (URL or base64 data)
+    let activeTab = 'products';
+
+    // Initialize App
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      checkAuth();
+    });
+
+    // Check if user is logged in
+    function checkAuth() {
+      const isAuth = sessionStorage.getItem(KEY_AUTH) === 'true';
+      if (isAuth) {
+        document.getElementById('loginScreen').classList.add('hidden');
+        document.getElementById('adminDashboard').classList.remove('hidden');
+        loadData();
+      } else {
+        document.getElementById('loginScreen').classList.remove('hidden');
+        document.getElementById('adminDashboard').classList.add('hidden');
+      }
+    }
+
+    // Login Handler (email: admin@soul.com, pass: 123456)
+    window.handleLogin = function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const pass = document.getElementById('loginPassword').value.trim();
+      const errorDiv = document.getElementById('loginError');
+
+      if (email === 'admin@soul.com' && pass === '123456') {
+        errorDiv.classList.add('hidden');
+        sessionStorage.setItem(KEY_AUTH, 'true');
+        showToast('Welcome, Administrator! Logged in successfully.', 'success');
+        checkAuth();
+      } else {
+        errorDiv.classList.remove('hidden');
+        showToast('Invalid admin credentials. Please try again.', 'error');
+      }
+    };
+
+    // Logout
+    window.handleLogout = function() {
+      if (confirm('Are you sure you want to log out of the Admin Portal?')) {
+        sessionStorage.removeItem(KEY_AUTH);
+        showToast('You have been logged out.', 'info');
+        checkAuth();
+      }
+    };
+
+    // Load Data from LocalStorage (or fallback to defaults)
+    function loadData() {
+      // Products
+      const storedProds = localStorage.getItem(KEY_PRODUCTS);
+      if (storedProds) {
+        try {
+          products = JSON.parse(storedProds);
+        } catch(e) {
+          products = [...DEFAULT_PRODUCTS];
+        }
+      } else {
+        products = [...DEFAULT_PRODUCTS];
+        saveProductsToStorage();
+      }
+
+      // Categories
+      const storedCats = localStorage.getItem(KEY_CATEGORIES);
+      if (storedCats) {
+        try {
+          categories = JSON.parse(storedCats);
+        } catch(e) {
+          categories = [...DEFAULT_CATEGORIES];
+        }
+      } else {
+        categories = [...DEFAULT_CATEGORIES];
+        saveCategoriesToStorage();
+      }
+
+      updateMetrics();
+      renderCategoryDropdowns();
+      renderProductsTable();
+      renderCategoriesGrid();
+      lucide.createIcons();
+    }
+
+    function saveProductsToStorage() {
+      localStorage.setItem(KEY_PRODUCTS, JSON.stringify(products));
+    }
+
+    function saveCategoriesToStorage() {
+      localStorage.setItem(KEY_CATEGORIES, JSON.stringify(categories));
+    }
+
+    // Metrics
+    function updateMetrics() {
+      document.getElementById('statTotalProducts').textContent = products.length;
+      document.getElementById('tabCountProducts').textContent = products.length;
+      
+      const realCats = categories.filter(c => c.id !== 'all');
+      document.getElementById('statTotalCategories').textContent = realCats.length;
+      document.getElementById('tabCountCategories').textContent = realCats.length;
+
+      const bestsellers = products.filter(p => p.badge && p.badge.toLowerCase().includes('bestseller')).length;
+      document.getElementById('statBestsellers').textContent = bestsellers;
+    }
+
+    // Switch Tab
+    window.switchTab = function(tabName) {
+      activeTab = tabName;
+      const tabBtnProducts = document.getElementById('tabBtnProducts');
+      const tabBtnCategories = document.getElementById('tabBtnCategories');
+      const contentProducts = document.getElementById('tabContentProducts');
+      const contentCategories = document.getElementById('tabContentCategories');
+
+      if (tabName === 'products') {
+        tabBtnProducts.className = 'px-5 py-2.5 rounded-xl font-bold text-xs tracking-wider uppercase transition flex items-center gap-2 bg-brand-emerald text-white shadow';
+        tabBtnCategories.className = 'px-5 py-2.5 rounded-xl font-bold text-xs tracking-wider uppercase transition flex items-center gap-2 bg-white text-gray-600 hover:text-brand-dark border border-gray-200';
+        contentProducts.classList.remove('hidden');
+        contentCategories.classList.add('hidden');
+      } else {
+        tabBtnCategories.className = 'px-5 py-2.5 rounded-xl font-bold text-xs tracking-wider uppercase transition flex items-center gap-2 bg-brand-emerald text-white shadow';
+        tabBtnProducts.className = 'px-5 py-2.5 rounded-xl font-bold text-xs tracking-wider uppercase transition flex items-center gap-2 bg-white text-gray-600 hover:text-brand-dark border border-gray-200';
+        contentCategories.classList.remove('hidden');
+        contentProducts.classList.add('hidden');
+      }
+      lucide.createIcons();
+    };
+
+    // Render Category Dropdowns
+    function renderCategoryDropdowns() {
+      const filterSelect = document.getElementById('productAdminCatFilter');
+      const modalSelect = document.getElementById('prodCategory');
+
+      // Filter select
+      filterSelect.innerHTML = `<option value="all">All Categories (${products.length})</option>` + 
+        categories.filter(c => c.id !== 'all').map(c => `
+          <option value="${c.id}">${c.name}</option>
+        `).join('');
+
+      // Modal select
+      modalSelect.innerHTML = categories.filter(c => c.id !== 'all').map(c => `
+        <option value="${c.id}">${c.name}</option>
+      `).join('');
+    }
+
+    // Render Products Table
+    window.renderProductsTable = function() {
+      const search = (document.getElementById('productAdminSearch')?.value || '').toLowerCase();
+      const cat = document.getElementById('productAdminCatFilter')?.value || 'all';
+      const tbody = document.getElementById('productsTableBody');
+      const emptyState = document.getElementById('productsEmptyState');
+
+      const filtered = products.filter(p => {
+        const matchesCat = cat === 'all' || p.category === cat;
+        const matchesSearch = !search || 
+          p.name.toLowerCase().includes(search) || 
+          (p.subtitle && p.subtitle.toLowerCase().includes(search)) ||
+          (p.badge && p.badge.toLowerCase().includes(search));
+        return matchesCat && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      tbody.innerHTML = filtered.map(p => {
+        // Image resolve (could be array or string)
+        const coverImg = Array.isArray(p.images) && p.images.length > 0 ? p.images[0] : (p.image || 'logo.png');
+        const imgCount = Array.isArray(p.images) && p.images.length > 0 ? p.images.length : (p.image ? 1 : 0);
+
+        return `
+          <tr class="hover:bg-brand-pearl/50 transition">
+            <!-- Product info & photo -->
+            <td class="py-3 px-4">
+              <div class="flex items-center gap-3">
+                <div class="relative w-12 h-12 rounded-xl overflow-hidden bg-brand-pearl border border-gray-200 shrink-0">
+                  <img src="${coverImg}" alt="${p.name}" class="w-full h-full object-contain">
+                  ${imgCount > 1 ? `
+                    <span class="absolute bottom-0 right-0 bg-brand-dark/90 text-brand-gold text-[9px] font-bold px-1 rounded-tl">
+                      +${imgCount - 1}
+                    </span>
+                  ` : ''}
+                </div>
+                <div class="min-w-0 max-w-xs">
+                  <div class="font-serif font-bold text-gray-900 truncate text-xs hover:text-brand-goldDark cursor-pointer" onclick="editProduct('${p.id}')">
+                    ${p.name}
+                  </div>
+                  <div class="text-[11px] text-gray-500 truncate mt-0.5">${p.subtitle || ''}</div>
+                </div>
+              </div>
+            </td>
+
+            <!-- Category -->
+            <td class="py-3 px-4">
+              <span class="inline-block bg-brand-pearl text-brand-emerald font-semibold px-2.5 py-1 rounded-lg border border-brand-gold/20 text-[10px] uppercase tracking-wider">
+                ${p.category}
+              </span>
+            </td>
+
+            <!-- Price -->
+            <td class="py-3 px-4 font-medium">
+              <span class="font-bold text-brand-emerald">LKR ${Number(p.price).toLocaleString()}</span>
+              ${p.originalPrice && p.originalPrice > p.price ? `
+                <div class="text-[10px] text-gray-400 line-through">LKR ${Number(p.originalPrice).toLocaleString()}</div>
+              ` : ''}
+            </td>
+
+            <!-- Size -->
+            <td class="py-3 px-4 text-gray-600 font-medium">
+              ${p.size || 'Standard'}
+            </td>
+
+            <!-- Badge -->
+            <td class="py-3 px-4">
+              <span class="inline-block bg-amber-50 text-brand-goldDark font-bold px-2 py-0.5 rounded-full border border-brand-gold/30 text-[10px]">
+                ${p.badge || 'Standard'}
+              </span>
+            </td>
+
+            <!-- Rating -->
+            <td class="py-3 px-4 text-amber-500 font-semibold text-[11px]">
+              ★ ${p.rating || 5.0} <span class="text-gray-400 font-normal">(${p.reviewsCount || 0})</span>
+            </td>
+
+            <!-- Actions -->
+            <td class="py-3 px-4 text-right">
+              <div class="flex items-center justify-end gap-1.5">
+                <button 
+                  onclick="editProduct('${p.id}')" 
+                  class="p-1.5 rounded-lg bg-gray-100 hover:bg-brand-emerald hover:text-white text-gray-700 transition"
+                  title="Edit Product"
+                >
+                  <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                </button>
+                <button 
+                  onclick="deleteProduct('${p.id}')" 
+                  class="p-1.5 rounded-lg bg-gray-100 hover:bg-red-600 hover:text-white text-gray-700 transition"
+                  title="Delete Product"
+                >
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    };
+
+    window.filterAdminProducts = function() {
+      renderProductsTable();
+    };
+
+    // ==================== MULTIPLE IMAGES HANDLING ====================
+    window.handleMultipleImageUpload = function(event) {
+      const files = event.target.files;
+      if (!files || files.length === 0) return;
+
+      Array.from(files).forEach(file => {
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          currentUploadedImages.push(e.target.result);
+          renderImagePreviews();
+        };
+        reader.readAsDataURL(file);
+      });
+
+      event.target.value = '';
+    };
+
+    window.addImageUrlToList = function() {
+      const input = document.getElementById('prodImageUrlInput');
+      const url = input.value.trim();
+      if (!url) return;
+
+      currentUploadedImages.push(url);
+      input.value = '';
+      renderImagePreviews();
+    };
+
+    window.removeImageAt = function(index) {
+      currentUploadedImages.splice(index, 1);
+      renderImagePreviews();
+    };
+
+    window.makeImagePrimary = function(index) {
+      if (index === 0) return;
+      const [item] = currentUploadedImages.splice(index, 1);
+      currentUploadedImages.unshift(item);
+      renderImagePreviews();
+    };
+
+    function renderImagePreviews() {
+      const container = document.getElementById('imageGalleryPreview');
+      if (currentUploadedImages.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-4 text-center text-gray-400">
+            No images selected yet. Upload files from your computer or enter a URL above.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = currentUploadedImages.map((src, index) => `
+        <div class="group relative aspect-square rounded-xl overflow-hidden bg-white border ${index === 0 ? 'border-2 border-brand-gold shadow-md' : 'border-gray-200'}">
+          <img src="${src}" class="w-full h-full object-contain p-1" alt="Product Image ${index + 1}">
+          
+          ${index === 0 ? `
+            <span class="absolute top-1 left-1 bg-brand-emerald text-brand-gold font-bold text-[8px] px-1.5 py-0.5 rounded uppercase tracking-wider">
+              Cover
+            </span>
+          ` : `
+            <button 
+              type="button" 
+              onclick="makeImagePrimary(${index})" 
+              class="absolute top-1 left-1 bg-brand-dark/80 text-white hover:text-brand-gold text-[9px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition"
+              title="Set as Primary Cover"
+            >
+              Set Cover
+            </button>
+          `}
+
+          <button 
+            type="button" 
+            onclick="removeImageAt(${index})" 
+            class="absolute top-1 right-1 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
+            title="Remove Image"
+          >
+            ×
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // ==================== PRODUCT MODAL (ADD / EDIT) ====================
+    window.openProductModal = function(productId = null) {
+      const modal = document.getElementById('productModalBackdrop');
+      const title = document.getElementById('productModalTitle');
+      const form = document.getElementById('productForm');
+      form.reset();
+
+      currentUploadedImages = [];
+
+      if (productId) {
+        const prod = products.find(p => p.id === productId);
+        if (!prod) return;
+
+        title.textContent = 'Edit Herbal Product';
+        document.getElementById('editProductId').value = prod.id;
+        document.getElementById('prodName').value = prod.name || '';
+        document.getElementById('prodSubtitle').value = prod.subtitle || '';
+        document.getElementById('prodCategory').value = prod.category || 'skincare';
+        document.getElementById('prodPrice').value = prod.price || '';
+        document.getElementById('prodOriginalPrice').value = prod.originalPrice || '';
+        document.getElementById('prodSize').value = prod.size || '';
+        document.getElementById('prodBadge').value = prod.badge || '';
+        document.getElementById('prodRating').value = prod.rating || 4.9;
+        document.getElementById('prodReviews').value = prod.reviewsCount || 50;
+
+        document.getElementById('prodDesc').value = prod.description || '';
+        document.getElementById('prodIngredients').value = prod.ingredients || '';
+        document.getElementById('prodUsage').value = prod.usage || '';
+        document.getElementById('prodBenefits').value = Array.isArray(prod.benefits) ? prod.benefits.join('\n') : '';
+
+        // Load images
+        if (Array.isArray(prod.images) && prod.images.length > 0) {
+          currentUploadedImages = [...prod.images];
+        } else if (prod.image) {
+          currentUploadedImages = [prod.image];
+        }
+      } else {
+        title.textContent = 'Add New Herbal Product';
+        document.getElementById('editProductId').value = '';
+        document.getElementById('prodRating').value = 4.9;
+        document.getElementById('prodReviews').value = 65;
+        document.getElementById('prodBadge').value = '100% Herbal';
+      }
+
+      renderImagePreviews();
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      lucide.createIcons();
+    };
+
+    window.closeProductModal = function() {
+      const modal = document.getElementById('productModalBackdrop');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    };
+
+    window.editProduct = function(id) {
+      openProductModal(id);
+    };
+
+    window.deleteProduct = function(id) {
+      const prod = products.find(p => p.id === id);
+      if (!prod) return;
+
+      if (confirm(`Are you sure you want to permanently delete "${prod.name}" from your catalog?`)) {
+        products = products.filter(p => p.id !== id);
+        saveProductsToStorage();
+        updateMetrics();
+        renderProductsTable();
+        showToast(`"${prod.name}" deleted successfully.`, 'info');
+      }
+    };
+
+    window.saveProduct = function(event) {
+      event.preventDefault();
+
+      const editId = document.getElementById('editProductId').value;
+      const name = document.getElementById('prodName').value.trim();
+      const subtitle = document.getElementById('prodSubtitle').value.trim();
+      const category = document.getElementById('prodCategory').value;
+      const price = parseFloat(document.getElementById('prodPrice').value);
+      const originalPriceVal = document.getElementById('prodOriginalPrice').value;
+      const originalPrice = originalPriceVal ? parseFloat(originalPriceVal) : null;
+      const size = document.getElementById('prodSize').value.trim();
+      const badge = document.getElementById('prodBadge').value.trim();
+      const rating = parseFloat(document.getElementById('prodRating').value) || 4.9;
+      const reviewsCount = parseInt(document.getElementById('prodReviews').value) || 50;
+
+      const description = document.getElementById('prodDesc').value.trim();
+      const ingredients = document.getElementById('prodIngredients').value.trim();
+      const usage = document.getElementById('prodUsage').value.trim();
+      const benefitsText = document.getElementById('prodBenefits').value.trim();
+      const benefits = benefitsText ? benefitsText.split('\n').map(b => b.trim()).filter(Boolean) : [];
+
+      if (currentUploadedImages.length === 0) {
+        alert('Please provide at least one product image (upload or URL).');
+        return;
+      }
+
+      const primaryImage = currentUploadedImages[0];
+
+      if (editId) {
+        // Update existing
+        const index = products.findIndex(p => p.id === editId);
+        if (index !== -1) {
+          products[index] = {
+            ...products[index],
+            name,
+            subtitle,
+            category,
+            price,
+            originalPrice,
+            size,
+            badge,
+            rating,
+            reviewsCount,
+            image: primaryImage,
+            images: [...currentUploadedImages],
+            description,
+            ingredients,
+            usage,
+            benefits
+          };
+          showToast(`"${name}" updated successfully!`, 'success');
+        }
+      } else {
+        // Create new
+        const newId = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Date.now().toString().slice(-4);
+        const newProduct = {
+          id: newId,
+          name,
+          subtitle,
+          category,
+          price,
+          originalPrice,
+          size,
+          badge,
+          rating,
+          reviewsCount,
+          image: primaryImage,
+          images: [...currentUploadedImages],
+          description,
+          ingredients,
+          usage,
+          benefits
+        };
+        products.unshift(newProduct);
+        showToast(`New product "${name}" added to catalog!`, 'success');
+      }
+
+      saveProductsToStorage();
+      closeProductModal();
+      updateMetrics();
+      renderProductsTable();
+    };
+
+    // ==================== CATEGORIES MANAGER ====================
+    function renderCategoriesGrid() {
+      const grid = document.getElementById('categoriesGrid');
+      const realCats = categories.filter(c => c.id !== 'all');
+
+      grid.innerHTML = realCats.map(cat => {
+        const count = products.filter(p => p.category === cat.id).length;
+        return `
+          <div class="bg-white p-5 rounded-2xl border border-gray-200/80 shadow-sm flex flex-col justify-between space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-pearl border border-brand-gold/30 flex items-center justify-center text-lg shadow-sm">
+                  ${cat.icon || '🌿'}
+                </div>
+                <div>
+                  <h4 class="font-serif font-bold text-gray-900 text-sm">${cat.name}</h4>
+                  <p class="text-[11px] text-gray-500 font-mono">ID: ${cat.id}</p>
+                </div>
+              </div>
+
+              <span class="text-xs font-bold text-brand-emerald bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+                ${count} Products
+              </span>
+            </div>
+
+            <div class="pt-3 border-t border-gray-100 flex items-center justify-end gap-2">
+              <button 
+                onclick="editCategory('${cat.id}')" 
+                class="px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-brand-emerald hover:text-white text-gray-700 text-xs font-semibold transition flex items-center gap-1.5"
+              >
+                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                <span>Edit</span>
+              </button>
+              
+              <button 
+                onclick="deleteCategory('${cat.id}')" 
+                class="px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-red-600 hover:text-white text-gray-700 text-xs font-semibold transition flex items-center gap-1.5"
+              >
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                <span>Delete</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    window.openCategoryModal = function(catId = null) {
+      const modal = document.getElementById('categoryModalBackdrop');
+      const title = document.getElementById('categoryModalTitle');
+      const form = document.getElementById('categoryForm');
+      form.reset();
+
+      if (catId) {
+        const cat = categories.find(c => c.id === catId);
+        if (!cat) return;
+        title.textContent = 'Edit Category';
+        document.getElementById('editCategoryId').value = cat.id;
+        document.getElementById('catName').value = cat.name;
+        document.getElementById('catSlug').value = cat.id;
+        document.getElementById('catSlug').readOnly = true;
+        document.getElementById('catIcon').value = cat.icon || '';
+      } else {
+        title.textContent = 'Add New Category';
+        document.getElementById('editCategoryId').value = '';
+        document.getElementById('catSlug').readOnly = false;
+      }
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      lucide.createIcons();
+    };
+
+    window.closeCategoryModal = function() {
+      document.getElementById('categoryModalBackdrop').classList.add('opacity-0', 'pointer-events-none');
+    };
+
+    window.autoGenerateSlug = function(name) {
+      const editId = document.getElementById('editCategoryId').value;
+      if (!editId) {
+        document.getElementById('catSlug').value = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+    };
+
+    window.editCategory = function(id) {
+      openCategoryModal(id);
+    };
+
+    window.deleteCategory = function(id) {
+      const cat = categories.find(c => c.id === id);
+      if (!cat) return;
+
+      const prodCount = products.filter(p => p.category === id).length;
+      if (prodCount > 0) {
+        alert(`Cannot delete category "${cat.name}" because it currently has ${prodCount} products assigned to it. Please reassign or delete those products first.`);
+        return;
+      }
+
+      if (confirm(`Are you sure you want to delete category "${cat.name}"?`)) {
+        categories = categories.filter(c => c.id !== id);
+        saveCategoriesToStorage();
+        updateMetrics();
+        renderCategoryDropdowns();
+        renderCategoriesGrid();
+        showToast(`Category "${cat.name}" deleted.`, 'info');
+      }
+    };
+
+    window.saveCategory = function(event) {
+      event.preventDefault();
+      const editId = document.getElementById('editCategoryId').value;
+      const name = document.getElementById('catName').value.trim();
+      const slug = document.getElementById('catSlug').value.trim().toLowerCase();
+      const icon = document.getElementById('catIcon').value.trim() || '🌿';
+
+      if (!name || !slug) return;
+
+      if (editId) {
+        // Edit existing
+        const idx = categories.findIndex(c => c.id === editId);
+        if (idx !== -1) {
+          categories[idx].name = name;
+          categories[idx].icon = icon;
+          showToast(`Category "${name}" updated!`, 'success');
+        }
+      } else {
+        // Check duplicate slug
+        if (categories.some(c => c.id === slug)) {
+          alert(`Category slug "${slug}" already exists. Please choose a different slug.`);
+          return;
+        }
+        categories.push({ id: slug, name, icon });
+        showToast(`New category "${name}" added!`, 'success');
+      }
+
+      saveCategoriesToStorage();
+      closeCategoryModal();
+      updateMetrics();
+      renderCategoryDropdowns();
+      renderCategoriesGrid();
+    };
+
+    // ==================== RESET DEFAULTS ====================
+    window.confirmResetDefaults = function() {
+      if (confirm('Are you sure you want to reset products and categories back to the original 22 Ayurvedic items? Any custom products added will be replaced.')) {
+        products = [...DEFAULT_PRODUCTS];
+        categories = [...DEFAULT_CATEGORIES];
+        saveProductsToStorage();
+        saveCategoriesToStorage();
+        loadData();
+        showToast('Restored catalog to 22 factory Ayurvedic items!', 'info');
+      }
+    };
+
+    // Toast Notifications
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      
+      const colors = {
+        success: 'bg-brand-emerald text-white border-brand-gold',
+        error: 'bg-red-800 text-white border-red-500',
+        info: 'bg-[#081710] text-brand-goldLight border-brand-forest'
+      };
+
+      toast.className = `${colors[type] || colors.info} border px-4 py-3 rounded-2xl shadow-2xl text-xs font-semibold flex items-center gap-2 transform transition-all duration-300 pointer-events-auto`;
+      toast.innerHTML = `
+        <span>${message}</span>
+      `;
+
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+  </script>
+
+</body>
+</html>

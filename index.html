@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden w-full m-0 p-0">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AM Soul Mate | Luxury Herbal & Ayurvedic Beauty Care</title>
+  <title>AM Soul Mate | Luxury Herbal &amp; Ayurvedic Beauty Care</title>
   <meta name="description" content="Discover pure herbal luxury with AM Soul Mate. Ayurvedic Kumkumadi face serums, Korean glass skin rice water, hair growth oils, and artisanal soaps handcrafted in Sri Lanka. Instant WhatsApp ordering.">
   <link rel="icon" type="image/png" href="logo.png">
 
-  <!-- Google Fonts: Cormorant Garamond, Playfair Display, Plus Jakarta Sans -->
+  <!-- Google Fonts: Cormorant Garamond, Playfair Display, Plus Jakarta Sans, Cinzel -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -49,6 +49,19 @@
   </script>
 
   <style>
+    /* Prevent any horizontal page overflow / white stripe on wide screens */
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden !important;
+      background-color: #081710;
+      margin: 0;
+      padding: 0;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     /* Custom Luxury Styling */
     .gold-gradient-text {
       background: linear-gradient(135deg, #eed58e 0%, #c5a059 40%, #fdf5d6 70%, #a27a32 100%);
@@ -88,7 +101,7 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
-    /* Subtle pulse animation for WhatsApp */
+    /* Pulse animation for WhatsApp */
     @keyframes pulseGlow {
       0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
       50% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
@@ -97,21 +110,30 @@
       animation: pulseGlow 2.5s infinite;
     }
 
-    /* Header navigation alignment */
-    header .flex.items-center.justify-between {
-      align-items: center;
+    /* Infinite Marquee Ticker */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: 200%;
+      animation: marqueeScroll 30s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
     }
   </style>
 </head>
 
-<body class="bg-brand-cream text-brand-charcoal font-sans antialiased selection:bg-brand-gold selection:text-white">
+<body class="bg-[#081710] text-brand-charcoal font-sans antialiased overflow-x-hidden w-full m-0 p-0 selection:bg-brand-gold selection:text-white">
 
   <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
-  <div class="bg-brand-dark text-brand-goldLight text-xs py-2 px-4 border-b border-brand-forest/40">
-    <div class="w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between">
+  <div class="w-full bg-[#081710] text-brand-goldLight text-xs py-2 px-4 border-b border-brand-forest/40">
+    <div class="max-w-[1536px] mx-auto px-2 sm:px-6 flex items-center justify-between">
       <div class="flex items-center space-x-2 overflow-hidden whitespace-nowrap">
         <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="font-medium tracking-wide">🌿 100% Pure Herbal &amp; Ayurvedic Formulas • Handcrafted in Sri Lanka • Islandwide Delivery</span>
+        <span class="font-medium tracking-wide">🌿 100% Pure Herbal &amp; Ayurvedic Formulas • Handcrafted in Sri Lanka • Islandwide Cash on Delivery</span>
       </div>
       <div class="hidden md:flex items-center space-x-6 text-brand-pearl/90">
         <a href="https://wa.me/94756771358?text=Hello%20AM%20Soul%20Mate,%20I%20would%20like%20to%20inquire%20about%20your%20herbal%20products." target="_blank" class="hover:text-brand-gold transition flex items-center gap-1.5 font-medium">
@@ -121,13 +143,18 @@
         </a>
         <span class="text-brand-forest">|</span>
         <span class="text-brand-goldLight font-medium">LKR (Sri Lankan Rupees)</span>
+        <span class="text-brand-forest">|</span>
+        <a href="admin.html" class="hover:text-brand-gold text-brand-goldLight transition flex items-center gap-1 font-semibold text-[11px]" title="Admin Login">
+          <i data-lucide="lock" class="w-3 h-3 text-brand-gold"></i>
+          <span>Admin Portal</span>
+        </a>
       </div>
     </div>
   </div>
 
   <!-- ==================== MAIN HEADER / NAVIGATION ==================== -->
-  <header class="sticky top-0 z-40 bg-brand-emerald text-white border-b border-brand-forest shadow-lg transition-all duration-300">
-    <div class="w-full px-4 sm:px-8 lg:px-12">
+  <header class="sticky top-0 z-40 w-full bg-brand-emerald text-white border-b border-brand-forest shadow-xl transition-all duration-300">
+    <div class="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="flex items-center justify-between h-20">
         
         <!-- Brand Logo / Emblem -->
@@ -142,24 +169,28 @@
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs xl:text-sm font-medium tracking-wide whitespace-nowrap ml-8 xl:ml-12">
+        <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs xl:text-sm font-medium tracking-wide whitespace-nowrap ml-6 xl:ml-10">
           <a href="#catalog" class="text-white/90 hover:text-brand-gold transition py-1 border-b-2 border-transparent hover:border-brand-gold">All Products</a>
           <a href="#catalog" onclick="filterCategory('skincare')" class="text-white/90 hover:text-brand-gold transition py-1">Skincare</a>
           <a href="#catalog" onclick="filterCategory('haircare')" class="text-white/90 hover:text-brand-gold transition py-1">Hair Growth</a>
           <a href="#catalog" onclick="filterCategory('cleansers')" class="text-white/90 hover:text-brand-gold transition py-1">Artisan Soaps</a>
           <a href="#catalog" onclick="filterCategory('combos')" class="text-white/90 hover:text-brand-gold transition py-1">Glow Combos</a>
           <a href="#about" class="text-white/90 hover:text-brand-gold transition py-1">Our Story</a>
+          <a href="admin.html" class="text-brand-gold hover:text-brand-goldLight transition py-1 flex items-center gap-1 font-semibold border-b-2 border-brand-gold/30">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            <span>Admin</span>
+          </a>
         </nav>
 
         <!-- Right Side: Search, WhatsApp Chat, Cart Trigger -->
         <div class="flex items-center space-x-3 sm:space-x-5">
           <!-- Search Bar (Desktop) -->
-          <div class="relative hidden sm:block w-48 md:w-64">
+          <div class="relative hidden sm:block w-44 md:w-60">
             <input 
               type="text" 
               id="searchInput" 
               placeholder="Search serum, hair oil..." 
-              class="w-full bg-brand-dark/70 text-white placeholder-emerald-300/50 text-xs rounded-full pl-9 pr-4 py-2 border border-brand-forest focus:outline-none focus:border-brand-gold transition"
+              class="w-full bg-brand-dark/80 text-white placeholder-emerald-300/50 text-xs rounded-full pl-9 pr-4 py-2 border border-brand-forest focus:outline-none focus:border-brand-gold transition"
               oninput="handleSearch(this.value)"
             >
             <i data-lucide="search" class="w-4 h-4 text-brand-gold absolute left-3 top-2.5"></i>
@@ -192,30 +223,45 @@
   </header>
 
   <!-- ==================== HERO SECTION ==================== -->
-  <section class="relative bg-brand-dark text-white overflow-hidden border-b border-brand-forest/60">
+  <section class="relative w-full bg-[#081710] text-white overflow-hidden border-b border-brand-forest/60">
     <!-- Subtle background gradient glow -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.18),transparent_50%)]"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(20,61,43,0.4),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(197,160,89,0.22),transparent_55%)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(20,61,43,0.5),transparent_50%)] pointer-events-none"></div>
 
-    <div class="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-16 py-14 lg:py-20 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div class="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-18 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
         <!-- Left Content -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
           
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-forest/60 border border-brand-gold/40 text-brand-gold text-xs font-semibold tracking-widest uppercase">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-goldLight"></i>
-            Sri Lanka's Handcrafted Herbal Alchemy
+          <!-- Verified Ratings & Alchemy Pill -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-forest/70 border border-brand-gold/50 text-brand-gold text-xs font-semibold tracking-widest uppercase shadow">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-goldLight"></i>
+              Sri Lanka's Handcrafted Herbal Alchemy
+            </div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-brand-gold/30 text-xs">
+              <span class="text-amber-400 font-bold tracking-widest">★★★★★</span>
+              <span class="text-brand-pearl font-medium text-[11px]">4.9/5 (2,400+ Reviews)</span>
+            </div>
           </div>
 
-          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
+          <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12]">
             Radiance Reborn Through <br class="hidden sm:inline">
             <span class="gold-gradient-text italic font-editorial">Pure Nature's Touch.</span>
           </h1>
 
-          <p class="text-base sm:text-lg text-emerald-100/80 font-light max-w-2xl leading-relaxed mx-auto lg:mx-0">
-            Immerse yourself in authentic Ayurvedic beauty. Formulated with Kashmiri saffron, fresh botanical extracts, and time-honored remedies for translucent glass skin and revitalized hair.
+          <p class="text-sm sm:text-base lg:text-lg text-emerald-100/85 font-light max-w-2xl leading-relaxed mx-auto lg:mx-0">
+            Immerse yourself in authentic Ayurvedic beauty. Formulated with Kashmiri saffron, fresh botanical extracts, and time-honored remedies for translucent glass skin and revitalized hair. Handcrafted in small batches in Sri Lanka.
           </p>
+
+          <!-- Key Botanical Highlights -->
+          <div class="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs">
+            <span class="bg-brand-emerald/90 text-brand-goldLight px-3 py-1 rounded-full border border-brand-gold/30">🌿 Kashmiri Saffron</span>
+            <span class="bg-brand-emerald/90 text-brand-goldLight px-3 py-1 rounded-full border border-brand-gold/30">💧 Fermented Rice Essence</span>
+            <span class="bg-brand-emerald/90 text-brand-goldLight px-3 py-1 rounded-full border border-brand-gold/30">🌱 Pure Sandalwood &amp; Amla</span>
+            <span class="bg-brand-emerald/90 text-brand-goldLight px-3 py-1 rounded-full border border-brand-gold/30">✨ 100% Chemical-Free</span>
+          </div>
 
           <!-- Key Trust Badges -->
           <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-brand-pearl/90">
@@ -223,19 +269,19 @@
               <div class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">
                 <i data-lucide="check" class="w-3.5 h-3.5"></i>
               </div>
-              <span>100% Herbal &amp; Pure</span>
+              <span class="font-medium">100% Herbal &amp; Pure</span>
             </div>
             <div class="flex items-center gap-2">
               <div class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">
                 <i data-lucide="check" class="w-3.5 h-3.5"></i>
               </div>
-              <span>Cruelty Free</span>
+              <span class="font-medium">Cruelty Free</span>
             </div>
             <div class="flex items-center gap-2">
               <div class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold">
                 <i data-lucide="check" class="w-3.5 h-3.5"></i>
               </div>
-              <span>Islandwide Delivery</span>
+              <span class="font-medium">Islandwide Delivery</span>
             </div>
           </div>
 
@@ -256,37 +302,37 @@
 
         <!-- Right Visual Feature Showcase -->
         <div class="lg:col-span-5 relative">
-          <div class="relative mx-auto max-w-md">
+          <div class="relative mx-auto max-w-md w-full">
             
             <!-- Glow background ring -->
-            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-brand-gold/30 to-emerald-500/20 blur-2xl opacity-70"></div>
+            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-brand-gold/35 to-emerald-500/25 blur-2xl opacity-75"></div>
 
             <!-- Spotlight Card -->
-            <div class="relative rounded-3xl overflow-hidden bg-brand-emerald/90 border border-brand-gold/40 shadow-2xl p-6 space-y-4">
-              <div class="relative rounded-2xl overflow-hidden aspect-square group">
+            <div class="relative rounded-3xl overflow-hidden bg-brand-emerald/95 border border-brand-gold/50 shadow-2xl p-6 space-y-4">
+              <div class="relative rounded-2xl overflow-hidden aspect-square group bg-[#081710] flex items-center justify-center">
                 <img 
                   id="heroSpotlightImage"
                   src="images/kumkumadi_serum.jpg" 
                   alt="Pure Kumkumadi Face Serum"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                 >
-                <div class="absolute top-3 left-3 bg-brand-dark/80 backdrop-blur-md text-brand-gold text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full border border-brand-gold/40">
+                <div class="absolute top-3 left-3 bg-brand-dark/90 backdrop-blur-md text-brand-gold text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full border border-brand-gold/40 shadow">
                   Featured Bestseller
                 </div>
-                <div class="absolute bottom-3 right-3 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-brand-gold/30">
+                <div class="absolute bottom-3 right-3 bg-brand-dark/90 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-brand-gold/30 shadow">
                   LKR 1,500 <span class="line-through text-white/50 text-[10px] ml-1">1,800</span>
                 </div>
               </div>
 
               <!-- Mini Carousel Indicators -->
-              <div class="flex items-center justify-between pt-2">
+              <div class="flex items-center justify-between pt-1">
                 <div>
-                  <h3 id="heroSpotlightTitle" class="font-serif font-bold text-lg text-white">Pure Kumkumadi Face Serum</h3>
+                  <h3 id="heroSpotlightTitle" class="font-serif font-bold text-base sm:text-lg text-white">Pure Kumkumadi Face Serum</h3>
                   <p id="heroSpotlightTag" class="text-xs text-brand-goldLight">Saffron &amp; 28 Ayurvedic Botanicals</p>
                 </div>
                 <button 
                   onclick="openQuickView('kumkumadi-serum')" 
-                  class="text-xs font-bold bg-brand-gold hover:bg-brand-goldLight text-brand-dark px-3.5 py-2 rounded-full transition"
+                  class="text-xs font-bold bg-brand-gold hover:bg-brand-goldLight text-brand-dark px-4 py-2 rounded-full transition shadow"
                 >
                   Quick View
                 </button>
@@ -294,17 +340,17 @@
 
               <!-- Thumbnails switcher -->
               <div class="grid grid-cols-4 gap-2 pt-2 border-t border-brand-forest/60">
-                <button onclick="switchHeroFeature('kumkumadi-serum', 'images/kumkumadi_serum.jpg', 'Pure Kumkumadi Face Serum', 'Saffron & 28 Ayurvedic Botanicals')" class="rounded-lg overflow-hidden border-2 border-brand-gold hover:opacity-100 transition aspect-square">
-                  <img src="images/kumkumadi_serum.jpg" class="w-full h-full object-cover" alt="Kumkumadi">
+                <button onclick="switchHeroFeature('kumkumadi-serum', 'images/kumkumadi_serum.jpg', 'Pure Kumkumadi Face Serum', 'Saffron & 28 Ayurvedic Botanicals')" class="rounded-lg overflow-hidden border-2 border-brand-gold hover:opacity-100 transition aspect-square bg-[#081710]">
+                  <img src="images/kumkumadi_serum.jpg" class="w-full h-full object-contain" alt="Kumkumadi">
                 </button>
-                <button onclick="switchHeroFeature('rice-water-toner', 'images/rice_water_toner.jpg', 'Korean Glass Skin Rice Water', 'Fermented Rice & Botanical Glow')" class="rounded-lg overflow-hidden border border-brand-forest hover:border-brand-gold hover:opacity-100 transition aspect-square">
-                  <img src="images/rice_water_toner.jpg" class="w-full h-full object-cover" alt="Rice Water">
+                <button onclick="switchHeroFeature('rice-water-toner', 'images/rice_water_toner.jpg', 'Korean Glass Skin Rice Water', 'Fermented Rice & Botanical Glow')" class="rounded-lg overflow-hidden border border-brand-forest hover:border-brand-gold hover:opacity-100 transition aspect-square bg-[#081710]">
+                  <img src="images/rice_water_toner.jpg" class="w-full h-full object-contain" alt="Rice Water">
                 </button>
-                <button onclick="switchHeroFeature('hair-care-combo', 'images/hair_care_combo.jpg', 'Super Growth Hair Oil & Shampoo', 'Root-to-Tip Herbal Growth Duo')" class="rounded-lg overflow-hidden border border-brand-forest hover:border-brand-gold hover:opacity-100 transition aspect-square">
-                  <img src="images/hair_care_combo.jpg" class="w-full h-full object-cover" alt="Hair Combo">
+                <button onclick="switchHeroFeature('hair-care-combo', 'images/hair_care_combo.jpg', 'Super Growth Hair Oil & Shampoo', 'Root-to-Tip Herbal Growth Duo')" class="rounded-lg overflow-hidden border border-brand-forest hover:border-brand-gold hover:opacity-100 transition aspect-square bg-[#081710]">
+                  <img src="images/hair_care_combo.jpg" class="w-full h-full object-contain" alt="Hair Combo">
                 </button>
-                <button onclick="switchHeroFeature('papaya-glow-soap', 'images/papaya_glow_soap.jpg', 'Papaya & Saffron Glow Soap', 'Natural Enzyme Skin Radiance')" class="rounded-lg overflow-hidden border border-brand-forest hover:border-brand-gold hover:opacity-100 transition aspect-square">
-                  <img src="images/papaya_glow_soap.jpg" class="w-full h-full object-cover" alt="Papaya Soap">
+                <button onclick="switchHeroFeature('papaya-glow-soap', 'images/papaya_glow_soap.jpg', 'Papaya & Saffron Glow Soap', 'Natural Enzyme Skin Radiance')" class="rounded-lg overflow-hidden border border-brand-forest hover:border-brand-gold hover:opacity-100 transition aspect-square bg-[#081710]">
+                  <img src="images/papaya_glow_soap.jpg" class="w-full h-full object-contain" alt="Papaya Soap">
                 </button>
               </div>
 
@@ -317,13 +363,34 @@
     </div>
   </section>
 
+  <!-- ==================== LUXURY BRAND MARQUEE TICKER ==================== -->
+  <div class="w-full bg-[#0c2419] border-y border-brand-gold/30 overflow-hidden py-3 text-brand-goldLight text-xs tracking-[0.2em] uppercase font-semibold">
+    <div class="marquee-track whitespace-nowrap">
+      <span class="px-6 flex items-center gap-3">✦ 100% PURE HERBAL FORMULAS</span>
+      <span class="px-6 flex items-center gap-3">✦ HANDCRAFTED IN SRI LANKA</span>
+      <span class="px-6 flex items-center gap-3">✦ KASHMIRI SAFFRON &amp; AYURVEDIC HERBS</span>
+      <span class="px-6 flex items-center gap-3">✦ 1-CLICK WHATSAPP CHECKOUT (+94 75 677 1358)</span>
+      <span class="px-6 flex items-center gap-3">✦ ISLANDWIDE CASH ON DELIVERY</span>
+      <span class="px-6 flex items-center gap-3">✦ 10,000+ GLOWING SRI LANKAN SKINS</span>
+      <span class="px-6 flex items-center gap-3">✦ ZERO PARABENS &amp; HARSH CHEMICALS</span>
+      <!-- Duplicate for seamless infinite loop -->
+      <span class="px-6 flex items-center gap-3">✦ 100% PURE HERBAL FORMULAS</span>
+      <span class="px-6 flex items-center gap-3">✦ HANDCRAFTED IN SRI LANKA</span>
+      <span class="px-6 flex items-center gap-3">✦ KASHMIRI SAFFRON &amp; AYURVEDIC HERBS</span>
+      <span class="px-6 flex items-center gap-3">✦ 1-CLICK WHATSAPP CHECKOUT (+94 75 677 1358)</span>
+      <span class="px-6 flex items-center gap-3">✦ ISLANDWIDE CASH ON DELIVERY</span>
+      <span class="px-6 flex items-center gap-3">✦ 10,000+ GLOWING SRI LANKAN SKINS</span>
+      <span class="px-6 flex items-center gap-3">✦ ZERO PARABENS &amp; HARSH CHEMICALS</span>
+    </div>
+  </div>
+
   <!-- ==================== HIGHLIGHT VALUE PROPOSITIONS ==================== -->
-  <section class="bg-brand-pearl py-8 border-b border-brand-gold/20">
-    <div class="w-full px-4 sm:px-8 lg:px-12">
+  <section class="w-full bg-brand-pearl py-10 border-b border-brand-gold/20">
+    <div class="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         
         <div class="flex flex-col items-center p-3">
-          <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
+          <div class="w-12 h-12 rounded-2xl bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
             <i data-lucide="leaf" class="w-6 h-6"></i>
           </div>
           <h4 class="font-serif font-bold text-brand-dark text-sm sm:text-base">100% Herbal &amp; Pure</h4>
@@ -331,7 +398,7 @@
         </div>
 
         <div class="flex flex-col items-center p-3">
-          <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
+          <div class="w-12 h-12 rounded-2xl bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
             <i data-lucide="truck" class="w-6 h-6"></i>
           </div>
           <h4 class="font-serif font-bold text-brand-dark text-sm sm:text-base">Islandwide Delivery</h4>
@@ -339,7 +406,7 @@
         </div>
 
         <div class="flex flex-col items-center p-3">
-          <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
+          <div class="w-12 h-12 rounded-2xl bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
             <i data-lucide="message-circle" class="w-6 h-6 text-[#25D366]"></i>
           </div>
           <h4 class="font-serif font-bold text-brand-dark text-sm sm:text-base">1-Click WhatsApp Order</h4>
@@ -347,7 +414,7 @@
         </div>
 
         <div class="flex flex-col items-center p-3">
-          <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
+          <div class="w-12 h-12 rounded-2xl bg-brand-emerald text-brand-gold flex items-center justify-center mb-3 shadow-md">
             <i data-lucide="sparkles" class="w-6 h-6"></i>
           </div>
           <h4 class="font-serif font-bold text-brand-dark text-sm sm:text-base">Glass Skin Guaranteed</h4>
@@ -359,98 +426,54 @@
   </section>
 
   <!-- ==================== MAIN PRODUCT CATALOG SECTION ==================== -->
-  <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-24">
-    
-    <!-- Section Heading -->
-    <div class="text-center max-w-2xl mx-auto mb-10">
-      <p class="font-cinzel text-xs tracking-[0.25em] text-brand-goldDark font-bold uppercase">The Natural Collection</p>
-      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mt-1">Handcrafted Ayurvedic Elixirs</h2>
-      <div class="w-16 h-0.5 bg-brand-gold mx-auto my-3"></div>
-      <p class="text-sm text-gray-600">Select any product to view full herbal details or order directly on WhatsApp with cash on delivery / bank transfer.</p>
-    </div>
-
-    <!-- Category Tabs Filter -->
-    <div class="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 pb-4 mb-8">
-      <button 
-        onclick="filterCategory('all')" 
-        id="cat-all" 
-        class="category-btn active px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-brand-emerald text-white shadow-md border border-brand-emerald"
-      >
-        All Products (22)
-      </button>
-
-      <button 
-        onclick="filterCategory('skincare')" 
-        id="cat-skincare" 
-        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
-      >
-        ✨ Skincare &amp; Serums
-      </button>
-
-      <button 
-        onclick="filterCategory('haircare')" 
-        id="cat-haircare" 
-        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
-      >
-        🌿 Hair Growth
-      </button>
-
-      <button 
-        onclick="filterCategory('cleansers')" 
-        id="cat-cleansers" 
-        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
-      >
-        🧼 Luxury Soaps
-      </button>
-
-      <button 
-        onclick="filterCategory('bodycare')" 
-        id="cat-bodycare" 
-        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
-      >
-        🌸 Body &amp; Spa
-      </button>
-
-      <button 
-        onclick="filterCategory('combos')" 
-        id="cat-combos" 
-        class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200"
-      >
-        🎁 Glow Combos &amp; Kits
-      </button>
-    </div>
-
-    <!-- Active Filter Status & Sorting Toolbar -->
-    <div class="flex flex-col sm:flex-row items-center justify-between pb-6 border-b border-gray-200 mb-8 gap-4">
-      <div class="text-xs text-gray-500 font-medium">
-        Showing <span id="productCount" class="font-bold text-brand-dark">22</span> handcrafted herbal items
+  <section id="catalog-section" class="w-full bg-brand-cream py-16 scroll-mt-24 border-t border-brand-gold/20">
+    <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Heading -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <p class="font-cinzel text-xs tracking-[0.25em] text-brand-goldDark font-bold uppercase">The Natural Collection</p>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mt-1">Handcrafted Ayurvedic Elixirs</h2>
+        <div class="w-16 h-0.5 bg-brand-gold mx-auto my-3"></div>
+        <p class="text-sm text-gray-600">Select any product to view full herbal details or order directly on WhatsApp with cash on delivery / bank transfer.</p>
       </div>
 
-      <div class="flex items-center gap-3">
-        <label for="sortSelect" class="text-xs text-gray-500 font-medium">Sort by:</label>
-        <select 
-          id="sortSelect" 
-          onchange="handleSort(this.value)" 
-          class="bg-white border border-gray-300 text-brand-dark text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-brand-gold"
-        >
-          <option value="featured">Featured / Bestsellers</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="rating">Highest Rated</option>
-        </select>
+      <!-- Category Tabs Filter (Dynamically Populated) -->
+      <div id="categoryTabsContainer" class="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 pb-4 mb-8">
+        <!-- Dynamically injected from active categories -->
       </div>
-    </div>
 
-    <!-- Product Grid Container -->
-    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
-      <!-- Injected via JavaScript -->
-    </div>
+      <!-- Active Filter Status & Sorting Toolbar -->
+      <div class="flex flex-col sm:flex-row items-center justify-between pb-6 border-b border-gray-200 mb-8 gap-4">
+        <div class="text-xs text-gray-500 font-medium">
+          Showing <span id="productCount" class="font-bold text-brand-dark">0</span> handcrafted herbal items
+        </div>
 
-  </main>
+        <div class="flex items-center gap-3">
+          <label for="sortSelect" class="text-xs text-gray-500 font-medium">Sort by:</label>
+          <select 
+            id="sortSelect" 
+            onchange="handleSort(this.value)" 
+            class="bg-white border border-gray-300 text-brand-dark text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-brand-gold"
+          >
+            <option value="featured">Featured / Bestsellers</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Grid Container -->
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+        <!-- Injected via JavaScript -->
+      </div>
+
+    </main>
+  </section>
 
   <!-- ==================== ABOUT / STORY SECTION ==================== -->
-  <section id="about" class="bg-brand-emerald text-white py-16 lg:py-24 border-t border-brand-forest relative overflow-hidden">
-    <div class="w-full px-4 sm:px-8 lg:px-12">
+  <section id="about" class="w-full bg-brand-emerald text-white py-16 lg:py-24 border-t border-brand-forest relative overflow-hidden">
+    <div class="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div class="lg:col-span-6 space-y-6">
@@ -489,11 +512,11 @@
         </div>
 
         <div class="lg:col-span-6 grid grid-cols-2 gap-4">
-          <div class="rounded-2xl overflow-hidden shadow-2xl border border-brand-gold/30">
-            <img src="images/kumkumadi_serum.jpg" alt="Pure Kumkumadi Face Serum" class="w-full h-64 object-cover">
+          <div class="rounded-2xl overflow-hidden shadow-2xl border border-brand-gold/30 bg-[#081710] p-2 flex items-center justify-center">
+            <img src="images/kumkumadi_serum.jpg" alt="Pure Kumkumadi Face Serum" class="w-full h-64 object-contain">
           </div>
-          <div class="rounded-2xl overflow-hidden shadow-2xl border border-brand-gold/30 mt-6">
-            <img src="images/rose_face_toner.jpg" alt="Rose Face Mist" class="w-full h-64 object-cover">
+          <div class="rounded-2xl overflow-hidden shadow-2xl border border-brand-gold/30 bg-[#081710] p-2 flex items-center justify-center mt-6">
+            <img src="images/rose_face_toner.jpg" alt="Rose Face Mist" class="w-full h-64 object-contain">
           </div>
         </div>
 
@@ -502,8 +525,8 @@
   </section>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="bg-brand-dark text-white border-t border-brand-forest/60 pt-16 pb-12">
-    <div class="w-full px-4 sm:px-8 lg:px-12">
+  <footer class="w-full bg-[#081710] text-white border-t border-brand-forest/60 pt-16 pb-12">
+    <div class="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-brand-forest/40">
         
         <!-- Brand Info -->
@@ -515,14 +538,14 @@
             Handcrafted pure herbal remedies, organic cleansers, and glass skin toners for natural luminous beauty across Sri Lanka.
           </p>
           <div class="flex items-center gap-3 pt-2">
-            <a href="https://wa.me/94756771358" target="_blank" class="w-8 h-8 rounded-full bg-brand-forest hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition text-brand-goldLight">
+            <a href="tel:+94756771358" class="w-8 h-8 rounded-full bg-brand-forest hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition text-brand-goldLight" title="Call Hotline">
               <i data-lucide="phone" class="w-4 h-4"></i>
             </a>
-            <a href="https://wa.me/94756771358" target="_blank" class="w-8 h-8 rounded-full bg-brand-forest hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition text-brand-goldLight">
+            <a href="https://wa.me/94756771358" target="_blank" class="w-8 h-8 rounded-full bg-brand-forest hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition text-brand-goldLight" title="WhatsApp Us">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
             </a>
-            <a href="#" class="w-8 h-8 rounded-full bg-brand-forest hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition text-brand-goldLight">
-              <i data-lucide="instagram" class="w-4 h-4"></i>
+            <a href="admin.html" class="w-8 h-8 rounded-full bg-brand-forest hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition text-brand-goldLight" title="Admin Portal">
+              <i data-lucide="lock" class="w-4 h-4"></i>
             </a>
           </div>
         </div>
@@ -547,7 +570,7 @@
             <li><a href="https://wa.me/94756771358?text=Free%20Skin%20Consultation" target="_blank" class="hover:text-brand-gold transition">Free Skin Consultation</a></li>
             <li><a href="#" class="hover:text-brand-gold transition">Delivery Information (Sri Lanka)</a></li>
             <li><a href="#" class="hover:text-brand-gold transition">Payment &amp; COD Policy</a></li>
-            <li><a href="#" class="hover:text-brand-gold transition">Authenticity Guarantee</a></li>
+            <li><a href="admin.html" class="hover:text-brand-gold transition text-brand-goldLight font-semibold">Admin Portal (Manage Store)</a></li>
           </ul>
         </div>
 
@@ -582,7 +605,7 @@
         <div class="flex space-x-6">
           <a href="#" class="hover:text-white transition">Privacy Policy</a>
           <a href="#" class="hover:text-white transition">Terms of Service</a>
-          <a href="#" class="hover:text-white transition">Herbal Safety</a>
+          <a href="admin.html" class="hover:text-brand-gold transition font-semibold text-brand-goldLight">Admin Login</a>
         </div>
       </div>
     </div>
@@ -590,8 +613,6 @@
 
   <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
   <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
-    
-    <!-- WhatsApp Floating Trigger with Ping -->
     <a 
       href="https://wa.me/94756771358?text=Hello%20AM%20Soul%20Mate!%20I%20would%20like%20to%20place%20an%20order." 
       target="_blank"
@@ -604,9 +625,10 @@
   </div>
 
   <!-- ==================== CART SLIDE-OUT DRAWER ==================== -->
+  <!-- Note: Closed state has pointer-events-none invisible translate-x-full to strictly avoid any horizontal page overflow -->
   <div id="cartDrawerBackdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none" onclick="closeCartDrawer()"></div>
 
-  <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[480px] bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+  <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[480px] bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col pointer-events-none invisible">
     
     <!-- Drawer Header -->
     <div class="p-5 bg-brand-emerald text-white flex items-center justify-between border-b border-brand-forest">
@@ -742,7 +764,7 @@
   </div>
 
   <!-- ==================== PRODUCT QUICK-VIEW MODAL ==================== -->
-  <div id="quickViewBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeQuickView()">
+  <div id="quickViewBackdrop" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeQuickView()">
     <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col" onclick="event.stopPropagation()">
       
       <!-- Close button -->
@@ -752,10 +774,18 @@
 
       <div class="overflow-y-auto flex-1 p-6 sm:p-8 space-y-6">
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-          <!-- Product Modal Image -->
-          <div class="rounded-2xl overflow-hidden aspect-square border border-gray-200 bg-brand-pearl shadow-inner">
-            <img id="modalImage" src="" alt="Product" class="w-full h-full object-cover">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+          
+          <!-- Product Modal Image & Gallery Switcher -->
+          <div class="space-y-3">
+            <div class="rounded-2xl overflow-hidden aspect-square border border-gray-200 bg-[#fbf9f5] shadow-inner p-2 flex items-center justify-center">
+              <img id="modalImage" src="" alt="Product" class="w-full h-full object-contain">
+            </div>
+
+            <!-- Modal thumbnails for multiple images -->
+            <div id="modalThumbnails" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+              <!-- Dynamically populated if multiple images exist -->
+            </div>
           </div>
 
           <!-- Product Modal Header & Price -->
@@ -823,7 +853,39 @@
 
   <!-- ==================== JAVASCRIPT APP LOGIC ==================== -->
   <script type="module">
-    import { PRODUCTS, CATEGORIES } from './products.js';
+    import { PRODUCTS as DEFAULT_PRODUCTS, CATEGORIES as DEFAULT_CATEGORIES } from './products.js';
+
+    // LocalStorage Keys for live dynamic sync with Admin Panel
+    const KEY_PRODUCTS = 'am_soul_mate_products';
+    const KEY_CATEGORIES = 'am_soul_mate_categories';
+
+    // Initialize products from dynamic storage (or fallback to defaults)
+    let PRODUCTS = [];
+    try {
+      const stored = localStorage.getItem(KEY_PRODUCTS);
+      if (stored) {
+        PRODUCTS = JSON.parse(stored);
+      } else {
+        PRODUCTS = [...DEFAULT_PRODUCTS];
+        localStorage.setItem(KEY_PRODUCTS, JSON.stringify(PRODUCTS));
+      }
+    } catch(e) {
+      PRODUCTS = [...DEFAULT_PRODUCTS];
+    }
+
+    // Initialize categories from dynamic storage (or fallback to defaults)
+    let CATEGORIES = [];
+    try {
+      const storedCats = localStorage.getItem(KEY_CATEGORIES);
+      if (storedCats) {
+        CATEGORIES = JSON.parse(storedCats);
+      } else {
+        CATEGORIES = [...DEFAULT_CATEGORIES];
+        localStorage.setItem(KEY_CATEGORIES, JSON.stringify(CATEGORIES));
+      }
+    } catch(e) {
+      CATEGORIES = [...DEFAULT_CATEGORIES];
+    }
 
     // State Variables
     let currentCategory = 'all';
@@ -833,10 +895,35 @@
 
     // Initialize UI
     window.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
+      renderCategoryTabs();
       renderProducts();
       updateCartUI();
+      lucide.createIcons();
     });
+
+    // Render Dynamic Category Tabs
+    function renderCategoryTabs() {
+      const container = document.getElementById('categoryTabsContainer');
+      if (!container) return;
+
+      container.innerHTML = CATEGORIES.map((cat, idx) => {
+        const isActive = cat.id === currentCategory;
+        const count = cat.id === 'all' 
+          ? PRODUCTS.length 
+          : PRODUCTS.filter(p => p.category === cat.id).length;
+
+        return `
+          <button 
+            onclick="filterCategory('${cat.id}')" 
+            id="cat-${cat.id}" 
+            class="category-btn ${isActive ? 'active bg-brand-emerald text-white shadow-md border border-brand-emerald' : 'bg-white text-brand-dark hover:bg-brand-pearl border border-gray-200'} px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition whitespace-nowrap"
+          >
+            <span>${cat.name}</span>
+            <span class="text-[10px] opacity-75 ml-1">(${count})</span>
+          </button>
+        `;
+      }).join('');
+    }
 
     // Render Product Cards
     function renderProducts() {
@@ -845,8 +932,8 @@
         const matchesCategory = currentCategory === 'all' || p.category === currentCategory;
         const matchesSearch = !searchQuery || 
           p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-          p.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          p.description.toLowerCase().includes(searchQuery.toLowerCase());
+          (p.subtitle && p.subtitle.toLowerCase().includes(searchQuery.toLowerCase())) ||
+          (p.description && p.description.toLowerCase().includes(searchQuery.toLowerCase()));
         return matchesCategory && matchesSearch;
       });
 
@@ -876,14 +963,20 @@
       }
 
       grid.innerHTML = filtered.map(p => {
-        const discountPct = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
+        const discountPct = p.originalPrice && p.originalPrice > p.price 
+          ? Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100) 
+          : 0;
+
+        const coverImage = Array.isArray(p.images) && p.images.length > 0 ? p.images[0] : (p.image || 'logo.png');
+        const multiImageCount = Array.isArray(p.images) && p.images.length > 1 ? p.images.length : 0;
+
         return `
           <div class="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
             
             <!-- Image & Badges -->
-            <div class="relative aspect-square overflow-hidden bg-[#fbf9f5] p-2 flex items-center justify-center cursor-pointer" onclick="openQuickView('${p.id}')">
+            <div class="relative aspect-square overflow-hidden bg-[#fbf9f5] p-3 flex items-center justify-center cursor-pointer" onclick="openQuickView('${p.id}')">
               <img 
-                src="${p.image}" 
+                src="${coverImage}" 
                 alt="${p.name}" 
                 class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" 
                 loading="lazy"
@@ -893,6 +986,14 @@
               <div class="absolute top-3 left-3 bg-brand-emerald text-brand-gold text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full shadow-md">
                 ${p.badge || '100% Herbal'}
               </div>
+
+              <!-- Multi image indicator -->
+              ${multiImageCount > 0 ? `
+                <div class="absolute bottom-3 left-3 bg-brand-dark/80 backdrop-blur text-brand-gold text-[9px] font-bold px-2 py-0.5 rounded-full shadow flex items-center gap-1">
+                  <i data-lucide="camera" class="w-3 h-3"></i>
+                  <span>${multiImageCount} Photos</span>
+                </div>
+              ` : ''}
 
               <!-- Discount Pill -->
               ${discountPct > 0 ? `
@@ -916,26 +1017,26 @@
                 <div class="flex items-center justify-between text-xs text-gray-500 mb-1">
                   <span class="uppercase tracking-wider font-semibold text-[10px] text-brand-goldDark">${p.category}</span>
                   <div class="flex items-center text-amber-500 text-[11px] font-bold">
-                    <span>★ ${p.rating}</span>
-                    <span class="text-gray-400 ml-1 font-normal">(${p.reviewsCount})</span>
+                    <span>★ ${p.rating || 4.9}</span>
+                    <span class="text-gray-400 ml-1 font-normal">(${p.reviewsCount || 50})</span>
                   </div>
                 </div>
 
                 <h3 onclick="openQuickView('${p.id}')" class="font-serif font-bold text-base text-brand-dark group-hover:text-brand-goldDark transition cursor-pointer line-clamp-1">
                   ${p.name}
                 </h3>
-                <p class="text-xs text-gray-500 line-clamp-1 mt-0.5">${p.subtitle}</p>
+                <p class="text-xs text-gray-500 line-clamp-1 mt-0.5">${p.subtitle || ''}</p>
               </div>
 
               <!-- Price & Size -->
               <div class="pt-2 border-t border-gray-100 flex items-baseline justify-between">
                 <div>
-                  <span class="font-serif font-bold text-lg text-brand-emerald">LKR ${p.price.toLocaleString()}</span>
-                  ${p.originalPrice > p.price ? `
-                    <span class="text-xs line-through text-gray-400 ml-1.5">LKR ${p.originalPrice.toLocaleString()}</span>
+                  <span class="font-serif font-bold text-lg text-brand-emerald">LKR ${Number(p.price).toLocaleString()}</span>
+                  ${p.originalPrice && p.originalPrice > p.price ? `
+                    <span class="text-xs line-through text-gray-400 ml-1.5">LKR ${Number(p.originalPrice).toLocaleString()}</span>
                   ` : ''}
                 </div>
-                <span class="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded border border-gray-100">${p.size}</span>
+                <span class="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded border border-gray-100">${p.size || 'Standard'}</span>
               </div>
 
               <!-- Action Buttons -->
@@ -1014,20 +1115,46 @@
       const product = PRODUCTS.find(p => p.id === productId);
       if (!product) return;
 
-      document.getElementById('modalImage').src = product.image;
+      const allImages = Array.isArray(product.images) && product.images.length > 0 
+        ? product.images 
+        : [product.image || 'logo.png'];
+
+      const mainImg = document.getElementById('modalImage');
+      mainImg.src = allImages[0];
+
+      // Render thumbnail switcher if multiple images
+      const thumbContainer = document.getElementById('modalThumbnails');
+      if (allImages.length > 1) {
+        thumbContainer.classList.remove('hidden');
+        thumbContainer.innerHTML = allImages.map((src, i) => `
+          <button 
+            type="button"
+            onclick="document.getElementById('modalImage').src = '${src}'" 
+            class="w-12 h-12 rounded-xl overflow-hidden border-2 border-transparent hover:border-brand-gold focus:border-brand-gold bg-[#fbf9f5] p-1 shrink-0 transition"
+          >
+            <img src="${src}" class="w-full h-full object-contain" alt="Thumbnail ${i + 1}">
+          </button>
+        `).join('');
+      } else {
+        thumbContainer.classList.add('hidden');
+        thumbContainer.innerHTML = '';
+      }
+
       document.getElementById('modalBadge').textContent = product.badge || '100% Herbal';
       document.getElementById('modalTitle').textContent = product.name;
-      document.getElementById('modalSubtitle').textContent = product.subtitle;
-      document.getElementById('modalPrice').textContent = `LKR ${product.price.toLocaleString()}`;
-      document.getElementById('modalOriginalPrice').textContent = product.originalPrice ? `LKR ${product.originalPrice.toLocaleString()}` : '';
+      document.getElementById('modalSubtitle').textContent = product.subtitle || '';
+      document.getElementById('modalPrice').textContent = `LKR ${Number(product.price).toLocaleString()}`;
+      document.getElementById('modalOriginalPrice').textContent = product.originalPrice ? `LKR ${Number(product.originalPrice).toLocaleString()}` : '';
       
-      const discountPct = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+      const discountPct = product.originalPrice && product.originalPrice > product.price 
+        ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
+        : 0;
       document.getElementById('modalDiscountTag').textContent = discountPct > 0 ? `Save ${discountPct}%` : '';
-      document.getElementById('modalSize').textContent = product.size;
+      document.getElementById('modalSize').textContent = product.size || 'Standard';
 
-      document.getElementById('modalDescription').textContent = product.description;
-      document.getElementById('modalIngredients').textContent = product.ingredients;
-      document.getElementById('modalUsage').textContent = product.usage;
+      document.getElementById('modalDescription').textContent = product.description || '';
+      document.getElementById('modalIngredients').textContent = product.ingredients || 'Pure Ayurvedic Botanicals';
+      document.getElementById('modalUsage').textContent = product.usage || 'Apply as directed on clean skin.';
 
       const benefitsUl = document.getElementById('modalBenefits');
       benefitsUl.innerHTML = (product.benefits || []).map(b => `<li>${b}</li>`).join('');
@@ -1112,12 +1239,14 @@
         const itemTotal = product.price * item.quantity;
         subtotal += itemTotal;
 
+        const img = Array.isArray(product.images) && product.images.length > 0 ? product.images[0] : (product.image || 'logo.png');
+
         return `
           <div class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-gray-100 shadow-sm">
-            <img src="${product.image}" class="w-16 h-16 rounded-xl object-cover border border-gray-200" alt="${product.name}">
+            <img src="${img}" class="w-16 h-16 rounded-xl object-contain bg-[#fbf9f5] border border-gray-200" alt="${product.name}">
             <div class="flex-1 min-w-0">
               <h4 class="font-serif font-bold text-xs text-brand-dark truncate">${product.name}</h4>
-              <p class="text-[11px] text-gray-500">LKR ${product.price.toLocaleString()} each</p>
+              <p class="text-[11px] text-gray-500">LKR ${Number(product.price).toLocaleString()} each</p>
               <div class="flex items-center gap-2 mt-2">
                 <button onclick="updateCartQuantity('${item.id}', -1)" class="w-6 h-6 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-xs font-bold">-</button>
                 <span class="text-xs font-bold px-1">${item.quantity}</span>
@@ -1125,7 +1254,7 @@
               </div>
             </div>
             <div class="text-right">
-              <div class="font-serif font-bold text-xs text-brand-emerald">LKR ${itemTotal.toLocaleString()}</div>
+              <div class="font-serif font-bold text-xs text-brand-emerald">LKR ${Number(itemTotal).toLocaleString()}</div>
               <button onclick="removeFromCart('${item.id}')" class="text-gray-400 hover:text-red-500 mt-2 p-1 text-[11px]">
                 <i data-lucide="trash-2" class="w-4 h-4"></i>
               </button>
@@ -1157,14 +1286,25 @@
       lucide.createIcons();
     }
 
+    // Safely open cart drawer with zero canvas horizontal overflow
     window.openCartDrawer = function() {
-      document.getElementById('cartDrawer').classList.remove('translate-x-full');
-      document.getElementById('cartDrawerBackdrop').classList.remove('opacity-0', 'pointer-events-none');
+      const drawer = document.getElementById('cartDrawer');
+      const backdrop = document.getElementById('cartDrawerBackdrop');
+      drawer.classList.remove('invisible', 'pointer-events-none');
+      setTimeout(() => drawer.classList.remove('translate-x-full'), 10);
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
     };
 
     window.closeCartDrawer = function() {
-      document.getElementById('cartDrawer').classList.add('translate-x-full');
-      document.getElementById('cartDrawerBackdrop').classList.add('opacity-0', 'pointer-events-none');
+      const drawer = document.getElementById('cartDrawer');
+      const backdrop = document.getElementById('cartDrawerBackdrop');
+      drawer.classList.add('translate-x-full');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        if (drawer.classList.contains('translate-x-full')) {
+          drawer.classList.add('invisible', 'pointer-events-none');
+        }
+      }, 300);
     };
 
     // Instant 1-Click WhatsApp Direct Buy for a Single Product
@@ -1175,8 +1315,8 @@
       const message = `🌿 *NEW ORDER INQUIRY - AM SOUL MATE* 🌿\n\n` +
         `Hello AM Soul Mate team,\nI would like to order the following herbal product:\n\n` +
         `✨ *Product:* ${product.name}\n` +
-        `💰 *Price:* LKR ${product.price.toLocaleString()}\n` +
-        `📦 *Size:* ${product.size}\n\n` +
+        `💰 *Price:* LKR ${Number(product.price).toLocaleString()}\n` +
+        `📦 *Size:* ${product.size || 'Standard'}\n\n` +
         `Please let me know how to proceed with payment and islandwide delivery. Thank you!`;
 
       const whatsappUrl = `https://wa.me/94756771358?text=${encodeURIComponent(message)}`;
@@ -1209,7 +1349,7 @@
         if (product) {
           const itemTotal = product.price * item.quantity;
           subtotal += itemTotal;
-          itemsListText += `${index + 1}. *${product.name}* (Qty: ${item.quantity}) - LKR ${itemTotal.toLocaleString()}\n`;
+          itemsListText += `${index + 1}. *${product.name}* (Qty: ${item.quantity}) - LKR ${Number(itemTotal).toLocaleString()}\n`;
         }
       });
 
